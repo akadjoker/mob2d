@@ -1,0 +1,69 @@
+\hypertarget{classMob2DRenderer}{
+\section{Mob2DRenderer Class Reference}
+\label{classMob2DRenderer}\index{Mob2DRenderer@{Mob2DRenderer}}
+}
+
+
+{\ttfamily \#include $<$Mob2DRenderer.h$>$}\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMob2DRenderer_a4c89702ab1b8682ce23a3e89da0670c5}{
+void {\bfseries Init} (uint window\_\-width, uint window\_\-height, uint view\_\-width, uint view\_\-height)}
+\label{classMob2DRenderer_a4c89702ab1b8682ce23a3e89da0670c5}
+
+\item 
+\hypertarget{classMob2DRenderer_ad9b187b3a21944c6ae67d691c17979ef}{
+void {\bfseries Deinit} ()}
+\label{classMob2DRenderer_ad9b187b3a21944c6ae67d691c17979ef}
+
+\item 
+\hypertarget{classMob2DRenderer_ae840203c037d0a4d34d2d25f6b2355ff}{
+void {\bfseries MoveCamera} (int x, int y)}
+\label{classMob2DRenderer_ae840203c037d0a4d34d2d25f6b2355ff}
+
+\item 
+\hypertarget{classMob2DRenderer_a237fc6126a5b08a0565cdb1d5186f01a}{
+void {\bfseries SetView} (int width, int height)}
+\label{classMob2DRenderer_a237fc6126a5b08a0565cdb1d5186f01a}
+
+\item 
+\hypertarget{classMob2DRenderer_ade1f82be52046c3c7b0fe7e06c3bf50e}{
+void {\bfseries SetWindowData} (int width, int height)}
+\label{classMob2DRenderer_ade1f82be52046c3c7b0fe7e06c3bf50e}
+
+\item 
+\hypertarget{classMob2DRenderer_a39a0942d3ad45f5e1e89a1e72fe16298}{
+void {\bfseries Render} ()}
+\label{classMob2DRenderer_a39a0942d3ad45f5e1e89a1e72fe16298}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMob2DRenderer_afa16f8b42c58b89c1c294f08054b52fd}{
+static \hyperlink{classMob2DRenderer}{Mob2DRenderer} $\ast$ {\bfseries Instance} ()}
+\label{classMob2DRenderer_afa16f8b42c58b89c1c294f08054b52fd}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMob2DRenderer_a0fc2385ff5105fb560cc996a6e9cb922}{
+class \hyperlink{classMob2DRenderer_a0fc2385ff5105fb560cc996a6e9cb922}{Mob2D}}
+\label{classMob2DRenderer_a0fc2385ff5105fb560cc996a6e9cb922}
+
+\item 
+\hypertarget{classMob2DRenderer_a8062666e3cdb41d93575a5739308bb29}{
+class \hyperlink{classMob2DRenderer_a8062666e3cdb41d93575a5739308bb29}{mob2d\_\-node}}
+\label{classMob2DRenderer_a8062666e3cdb41d93575a5739308bb29}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classMob2DRenderer}{Mob2DRenderer}: Uses OpenGL to render the scene. Its rendering process is described in the comments of VARender. This only handles texture binding as far as the actual rendering process is concerned. Drawing is handled by the Mob2D\_\-node. This is a Meyers Singleton class initalized by \hyperlink{classMob2D}{Mob2D}. Only the \hyperlink{classMob2D}{Mob2D} class may call methods of this class. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+/home/orm/Projects/Mob2D/libMob2D/src/Mob2DRenderer.h\item 
+/home/orm/Projects/Mob2D/libMob2D/src/Mob2DRenderer.cpp\end{DoxyCompactItemize}
