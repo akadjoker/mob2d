@@ -58,7 +58,7 @@ int main()
 
 	Mob2D::API()->SetClearColor(0.0f, 0.0f, 0.0f);
 
-    // Create an app node and assign it to the Test_Image resource stored by the system.
+    // Create app nodes and assign it to the image resources stored by the system.
     // This is just a quick and dirty demonstration. I need to make a nicer one.
 	M2DNode app_node  = Mob2D::API()->AddNode("Test_Image");
 	M2DNode app_node1 = Mob2D::API()->AddNode("Zero");

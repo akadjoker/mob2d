@@ -29,30 +29,40 @@ void mob2d_node::SetAnimation(string anim)
 // the texture using the correctly converted texture coordinates.
 void mob2d_node::Draw()
 {
-    glTexCoordPointer(2, GL_FLOAT, 0, &m_sprite->GetFrame(animation, frame).texture_coords[0]);
-    glVertexPointer(2, GL_FLOAT, 0, &m_sprite->GetFrame(animation, frame).vertex_array[0]);
-    glPushMatrix();
-        glTranslatef(x, y, 1.0f);
-        glRotatef(angle, 0.0f, 0.0f, 1.0f);
-        glScalef(scale_x, scale_y, 0.0f);
-    glDrawArrays(GL_QUADS, 0, 4);
-    glPopMatrix();
-
-    //std::cout<<animation<<".\n";
+    if(!m_sprite->error())
+    {
+        glTexCoordPointer(2, GL_FLOAT, 0, &m_sprite->GetFrame(animation, frame).texture_coords[0]);
+        glVertexPointer(2, GL_FLOAT, 0, &m_sprite->GetFrame(animation, frame).vertex_array[0]);
+        glPushMatrix();
+            glTranslatef(x, y, 1.0f);
+            glRotatef(angle, 0.0f, 0.0f, 1.0f);
+            glScalef(scale_x, scale_y, 0.0f);
+        glDrawArrays(GL_QUADS, 0, 4);
+        glPopMatrix();
+    }
+    else
+        DrawError();
 }
 void mob2d_node::DrawToScreen()
 {
-    Mob2DCoord coord = Mob2D::API()->GetWorldCoords(x, y);
-    glTexCoordPointer(2, GL_FLOAT, 0, &m_sprite->GetFrame(animation, frame).texture_coords[0]);
-    glVertexPointer(2, GL_FLOAT, 0, &m_sprite->GetFrame(animation, frame).vertex_array[0]);
-    glPushMatrix();
-        glTranslatef(coord.x, coord.y, 1.0f);
-        glRotatef(angle, 0.0f, 0.0f, 1.0f);
-    // Scale value = camera_view_size / window_size
-        glScalef(Mob2DRenderer::Instance()->camera_data[2]/Mob2DRenderer::Instance()->window[0],
-                 Mob2DRenderer::Instance()->camera_data[3]/Mob2DRenderer::Instance()->window[1], 0.0f);
-    glDrawArrays(GL_QUADS, 0, 4);
-    glPopMatrix();
+
+
+    if(!m_sprite->error())
+    {
+        Mob2DCoord coord = Mob2D::API()->GetWorldCoords(x, y);
+        glTexCoordPointer(2, GL_FLOAT, 0, &m_sprite->GetFrame(animation, frame).texture_coords[0]);
+        glVertexPointer(2, GL_FLOAT, 0, &m_sprite->GetFrame(animation, frame).vertex_array[0]);
+        glPushMatrix();
+            glTranslatef(coord.x, coord.y, 1.0f);
+            glRotatef(angle, 0.0f, 0.0f, 1.0f);
+        // Scale value = camera_view_size / window_size
+            glScalef(Mob2DRenderer::Instance()->camera_data[2]/Mob2DRenderer::Instance()->window[0],
+                     Mob2DRenderer::Instance()->camera_data[3]/Mob2DRenderer::Instance()->window[1], 0.0f);
+        glDrawArrays(GL_QUADS, 0, 4);
+        glPopMatrix();
+    }
+    else
+        DrawError();
 }
 void mob2d_node::DrawError()
 {

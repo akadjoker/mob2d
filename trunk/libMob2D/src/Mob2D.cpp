@@ -100,3 +100,5 @@ Mob2DCoord Mob2D::GetWorldCoords(int x, int y)
     gluUnProject(win_x, win_y, win_z, modelview_mat, projection_mat, viewport, &coord.x, &coord.y, &pos_z);
     return coord;
 }
+
+} // Mob2D namespace
