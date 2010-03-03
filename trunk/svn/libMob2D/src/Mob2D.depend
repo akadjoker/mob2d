@@ -1,0 +1,881 @@
+# depslib dependency file v1.0
+1266178407 source:c:\users\orm\desktop\projectdata2d\dars\dars.cpp
+	"DARS.h"
+
+1266194334 
+
+1266277415 c:\users\orm\desktop\projectdata2d\dars\dars.h
+	"DARSCommon.h"
+	"DARSRenderer.h"
+
+1266265296 rer.h"
+
+1266177284 c:\users\orm\desktop\projectdata2d\dars\darscommon.h
+	<map>
+	<list>
+	<ctime>
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+	<boost/shared_ptr.hpp>
+	<boost/ptr_container/ptr_map.hpp>
+	<boost/ptr_container/ptr_vector.hpp>
+	"GLEE.h"
+	<GL/gl.h>
+	<GL/glu.h>
+	"soil/SOIL.h"
+	"xml/tinyxml.h"
+
+1266177284 ml.h"
+
+1263996156 c:\users\orm\desktop\projectdata2d\dars\soil\soil.h
+
+1259765882 c:\users\orm\desktop\projectdata2d\dars\xml\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1262917700 "
+
+1178480484 c:\users\orm\desktop\projectdata2d\dars\xml\tinystr.h
+	<assert.h>
+	<string.h>
+
+1266189191 c:\users\orm\desktop\projectdata2d\dars\darsrenderer.h
+	"DARSShader.h"
+	"DARSCommon.h"
+	"SpriteManager.h"
+	<windows.h>
+
+1178480484 >
+
+1266187794 c:\users\orm\desktop\projectdata2d\dars\spritemanager.h
+	"DARSCommon.h"
+	"Sprite.h"
+	"dars_node.h"
+
+1265932163 .h"
+
+1265287328 c:\users\orm\desktop\projectdata2d\dars\filemanager.h
+	"DARSCommon.h"
+	"zlib/zlibwrapper.h"
+	<boost/filesystem.hpp>
+
+1265287328 esystem.hpp>
+
+1264253433 c:\users\orm\desktop\projectdata2d\dars\zlib\zlibwrapper.h
+	"zlib.h"
+	<stdio.h>
+	<io.h>
+
+1262917701 c:\users\orm\desktop\projectdata2d\dars\zlib\zlib.h
+	"zconf.h"
+
+1262917714 c:\users\orm\desktop\projectdata2d\dars\zlib\zconf.h
+	<windows.h>
+	<sys/types.h>
+	<unistd.h>
+	<unixio.h>
+
+1266189682 c:\users\orm\desktop\projectdata2d\dars\sprite.h
+	"DARSCommon.h"
+	"Animation.h"
+	"DARSShader.h"
+
+1266189682 r.h"
+
+1266276536 source:c:\users\orm\desktop\projectdata2d\dars\darsrenderer.cpp
+	"DARSRenderer.h"
+
+1266264158 source:c:\users\orm\desktop\projectdata2d\dars\sprite.cpp
+	"Sprite.h"
+
+1266180021 source:c:\users\orm\desktop\projectdata2d\dars\spritemanager.cpp
+	"SpriteManager.h"
+
+1266180021 ager.h"
+
+1263996156 source:c:\users\orm\desktop\projectdata2d\dars\soil\soil.c
+	<windows.h>
+	<wingdi.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<Carbon/Carbon.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	"SOIL.h"
+	"stb_image_aug.h"
+	"image_helper.h"
+	"image_DXT.h"
+	<stdlib.h>
+	<string.h>
+
+1263996156 c:\users\orm\desktop\projectdata2d\dars\soil\stb_image_aug.h
+	<stdio.h>
+
+1263996156 c:\users\orm\desktop\projectdata2d\dars\soil\image_helper.h
+
+1263996156 c:\users\orm\desktop\projectdata2d\dars\soil\image_dxt.h
+
+1263996155 source:c:\users\orm\desktop\projectdata2d\dars\soil\image_dxt.c
+	"image_DXT.h"
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+
+1263996156 source:c:\users\orm\desktop\projectdata2d\dars\soil\image_helper.c
+	"image_helper.h"
+	<stdlib.h>
+	<math.h>
+
+1263996156 source:c:\users\orm\desktop\projectdata2d\dars\soil\stb_image_aug.c
+	"stb_image_aug.h"
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+	"stbi_DDS_aug.h"
+	"stbi_DDS_aug_c.h"
+
+1263996156 aug_c.h"
+
+1263996156 c:\users\orm\desktop\projectdata2d\dars\soil\stbi_dds_aug.h
+
+1263996156 c:\users\orm\desktop\projectdata2d\dars\soil\stbi_dds_aug_c.h
+
+1178480484 source:c:\users\orm\desktop\projectdata2d\dars\xml\tinystr.cpp
+	"tinystr.h"
+
+1178480484 source:c:\users\orm\desktop\projectdata2d\dars\xml\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1178480484 source:c:\users\orm\desktop\projectdata2d\dars\xml\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1178480484 source:c:\users\orm\desktop\projectdata2d\dars\xml\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1262917697 source:c:\users\orm\desktop\projectdata2d\dars\zlib\adler32.c
+	"zlib.h"
+
+1262917698 source:c:\users\orm\desktop\projectdata2d\dars\zlib\compress.c
+	"zlib.h"
+
+1262917700 source:c:\users\orm\desktop\projectdata2d\dars\zlib\crc32.c
+	<stdio.h>
+	"zutil.h"
+	<limits.h>
+	"crc32.h"
+
+1262917701 c:\users\orm\desktop\projectdata2d\dars\zlib\zutil.h
+	"zlib.h"
+	<stddef.h>
+	<string.h>
+	<stdlib.h>
+	<errno.h>
+	<alloc.h>
+	<malloc.h>
+	<malloc.h>
+	<unix.h>
+	<stdio.h>
+
+1262917700 c:\users\orm\desktop\projectdata2d\dars\zlib\crc32.h
+
+1262917700 source:c:\users\orm\desktop\projectdata2d\dars\zlib\deflate.c
+	"deflate.h"
+
+1262917700 c:\users\orm\desktop\projectdata2d\dars\zlib\deflate.h
+	"zutil.h"
+
+1262917700 source:c:\users\orm\desktop\projectdata2d\dars\zlib\gzio.c
+	<stdio.h>
+	"zutil.h"
+	<stdarg.h>
+
+1262917700 source:c:\users\orm\desktop\projectdata2d\dars\zlib\infback.c
+	"zutil.h"
+	"inftrees.h"
+	"inflate.h"
+	"inffast.h"
+	"inffixed.h"
+
+1262917700 h"
+
+1262917700 c:\users\orm\desktop\projectdata2d\dars\zlib\inftrees.h
+
+1262917700 c:\users\orm\desktop\projectdata2d\dars\zlib\inflate.h
+
+1262917700 c:\users\orm\desktop\projectdata2d\dars\zlib\inffast.h
+
+1262917700 c:\users\orm\desktop\projectdata2d\dars\zlib\inffixed.h
+
+1262917700 source:c:\users\orm\desktop\projectdata2d\dars\zlib\inffast.c
+	"zutil.h"
+	"inftrees.h"
+	"inflate.h"
+	"inffast.h"
+
+1262917700 source:c:\users\orm\desktop\projectdata2d\dars\zlib\inflate.c
+	"zutil.h"
+	"inftrees.h"
+	"inflate.h"
+	"inffast.h"
+	"inffixed.h"
+	<stdio.h>
+
+1262917700 source:c:\users\orm\desktop\projectdata2d\dars\zlib\inftrees.c
+	"zutil.h"
+	"inftrees.h"
+
+1262917701 source:c:\users\orm\desktop\projectdata2d\dars\zlib\trees.c
+	"deflate.h"
+	<ctype.h>
+	"trees.h"
+	<stdio.h>
+
+1262917701 c:\users\orm\desktop\projectdata2d\dars\zlib\trees.h
+
+1262917701 source:c:\users\orm\desktop\projectdata2d\dars\zlib\uncompr.c
+	"zlib.h"
+
+1264253460 source:c:\users\orm\desktop\projectdata2d\dars\zlib\zlibwrapper.cpp
+	<windows.h>
+	"zlibwrapper.h"
+
+1264253460 er.h"
+
+1262917701 source:c:\users\orm\desktop\projectdata2d\dars\zlib\zutil.c
+	"zutil.h"
+
+1266265296 source:c:\users\orm\desktop\projectdata2d\dars\dars_node.cpp
+	"dars_node.h"
+	"SpriteManager.h"
+	"DARSRenderer.h"
+
+1265932163 source:c:\users\orm\desktop\projectdata2d\dars\animation.cpp
+	"Animation.h"
+
+1266263204 c:\users\orm\desktop\projectdata2d\dars\animation.h
+	"DARSCommon.h"
+
+1266071394 n.h"
+
+1265771998 source:c:\users\orm\desktop\projectdata2d\dars\darslog.cpp
+	"DARSCommon.h"
+
+1223350312 c:\users\orm\desktop\projectdata2d\dars\glee.h
+	<windows.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	<stddef.h>
+
+1266069726 c:\users\orm\desktop\projectdata2d\dars\darsshader.h
+	<windows.h>
+	<map>
+	<fstream>
+	<iostream>
+	<string>
+	<vector>
+	"DARSCommon.h"
+	"DARSShaderStrings.h"
+
+1266069726 rStrings.h"
+
+1266071394 c:\users\orm\desktop\projectdata2d\dars\darsshaderstrings.h
+	"DARSCommon.h"
+
+1223350312 source:c:\users\orm\desktop\projectdata2d\dars\glee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"GLee.h"
+	<Carbon/Carbon.h>
+
+1223350312 rbon.h>
+
+1266194334 c:\users\orm\desktop\projectdata2d\dars\dars_node.h
+	"DARSCommon.h"
+	"Sprite.h"
+
+1265914164 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/Animation.cpp
+	"Animation.h"
+
+1266338728 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/Animation.h
+	"DARSCommon.h"
+
+1266409903 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/DARSCommon.h
+	<map>
+	<list>
+	<ctime>
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+	<boost/shared_ptr.hpp>
+	<boost/ptr_container/ptr_map.hpp>
+	<boost/ptr_container/ptr_vector.hpp>
+	"GLee.h"
+	<GL/gl.h>
+	<GL/glu.h>
+	"soil/SOIL.h"
+	"xml/tinyxml.h"
+	<windows.h>
+	<sys/timeb.h>
+	<whatever.h>
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/soil/SOIL.h
+
+1259747884 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/xml/tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1178466084 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/xml/tinystr.h
+	<assert.h>
+	<string.h>
+
+1266160408 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/DARS.cpp
+	"DARS.h"
+
+1266409903 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/DARS.h
+	"DARSCommon.h"
+	"DARSRenderer.h"
+
+1266407389 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/DARSRenderer.h
+	"DARSShader.h"
+	"DARSCommon.h"
+	"SpriteManager.h"
+
+1266051728 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/DARSShader.h
+	<windows.h>
+	<map>
+	<fstream>
+	<iostream>
+	<string>
+	<vector>
+	"DARSCommon.h"
+	"DARSShaderStrings.h"
+
+1266053396 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/DARSShaderStrings.h
+	"DARSCommon.h"
+
+1266169796 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/SpriteManager.h
+	"DARSCommon.h"
+	"Sprite.h"
+	"dars_node.h"
+
+1266410113 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/Sprite.h
+	"DARSCommon.h"
+	"Animation.h"
+	"DARSShader.h"
+
+1266411546 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/dars_node.h
+	"DARSCommon.h"
+	"Sprite.h"
+
+1265754000 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/DARSLog.cpp
+	"DARSCommon.h"
+
+1266410058 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/DARSRenderer.cpp
+	"DARSRenderer.h"
+
+1223335912 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/GLee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"GLee.h"
+	<Carbon/Carbon.h>
+
+1223335912 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/GLee.h
+	<windows.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	<stddef.h>
+
+1266344702 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/Sprite.cpp
+	"Sprite.h"
+
+1266411457 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/SpriteManager.cpp
+	"SpriteManager.h"
+
+1266339109 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/dars_node.cpp
+	"dars_node.h"
+	"SpriteManager.h"
+	"DARSRenderer.h"
+
+1263978158 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/soil/SOIL.c
+	<windows.h>
+	<wingdi.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<Carbon/Carbon.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	"SOIL.h"
+	"stb_image_aug.h"
+	"image_helper.h"
+	"image_DXT.h"
+	<stdlib.h>
+	<string.h>
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/soil/stb_image_aug.h
+	<stdio.h>
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/soil/image_helper.h
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/soil/image_DXT.h
+
+1263978156 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/soil/image_DXT.c
+	"image_DXT.h"
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+
+1263978158 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/soil/image_helper.c
+	"image_helper.h"
+	<stdlib.h>
+	<math.h>
+
+1263978158 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/soil/stb_image_aug.c
+	"stb_image_aug.h"
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+	"stbi_DDS_aug.h"
+	"stbi_DDS_aug_c.h"
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/soil/stbi_DDS_aug.h
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/soil/stbi_DDS_aug_c.h
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/xml/tinystr.cpp
+	"tinystr.h"
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/xml/tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/xml/tinyxmlerror.cpp
+	"tinyxml.h"
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/xml/tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1266261928 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/ParticleSystem.cpp
+	"ParticleSystem.h"
+
+1266261928 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/ParticleSystem.h
+
+1265914164 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/Animation.cpp
+	"Animation.h"
+
+1266424739 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/Animation.h
+	"DARSCommon.h"
+
+1266427816 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/DARSCommon.h
+	<map>
+	<list>
+	<ctime>
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+	<boost/shared_ptr.hpp>
+	<boost/ptr_container/ptr_map.hpp>
+	<boost/ptr_container/ptr_vector.hpp>
+	"GLee.h"
+	<GL/gl.h>
+	<GL/glu.h>
+	"soil/SOIL.h"
+	"xml/tinyxml.h"
+	<windows.h>
+	<sys/timeb.h>
+	<whatever.h>
+
+1223335912 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/GLee.h
+	<windows.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	<stddef.h>
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/soil/SOIL.h
+
+1259747884 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/xml/tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1178466084 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/xml/tinystr.h
+	<assert.h>
+	<string.h>
+
+1266160408 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/DARS.cpp
+	"DARS.h"
+
+1266409903 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/DARS.h
+	"DARSCommon.h"
+	"DARSRenderer.h"
+
+1266427801 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/DARSRenderer.h
+	"DARSShader.h"
+	"DARSCommon.h"
+	"SpriteManager.h"
+
+1266051728 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/DARSShader.h
+	<windows.h>
+	<map>
+	<fstream>
+	<iostream>
+	<string>
+	<vector>
+	"DARSCommon.h"
+	"DARSShaderStrings.h"
+
+1266053396 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/DARSShaderStrings.h
+	"DARSCommon.h"
+
+1266424684 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/SpriteManager.h
+	"DARSCommon.h"
+	"Sprite.h"
+	"dars_node.h"
+
+1266410113 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/Sprite.h
+	"DARSCommon.h"
+	"Animation.h"
+	"DARSShader.h"
+
+1266411546 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/dars_node.h
+	"DARSCommon.h"
+	"Sprite.h"
+
+1223335912 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/GLee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"GLee.h"
+	<Carbon/Carbon.h>
+
+1266261928 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/ParticleSystem.cpp
+	"ParticleSystem.h"
+
+1266261928 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/ParticleSystem.h
+
+1266411457 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/SpriteManager.cpp
+	"SpriteManager.h"
+
+1263978158 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/soil/SOIL.c
+	<windows.h>
+	<wingdi.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<Carbon/Carbon.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	"SOIL.h"
+	"stb_image_aug.h"
+	"image_helper.h"
+	"image_DXT.h"
+	<stdlib.h>
+	<string.h>
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/soil/stb_image_aug.h
+	<stdio.h>
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/soil/image_helper.h
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/soil/image_DXT.h
+
+1263978156 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/soil/image_DXT.c
+	"image_DXT.h"
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+
+1263978158 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/soil/image_helper.c
+	"image_helper.h"
+	<stdlib.h>
+	<math.h>
+
+1263978158 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/soil/stb_image_aug.c
+	"stb_image_aug.h"
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+	"stbi_DDS_aug.h"
+	"stbi_DDS_aug_c.h"
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/soil/stbi_DDS_aug.h
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/soil/stbi_DDS_aug_c.h
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/xml/tinystr.cpp
+	"tinystr.h"
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/xml/tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/xml/tinyxmlerror.cpp
+	"tinyxml.h"
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/xml/tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1266425540 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/DARSLog.cpp
+	"DARSCommon.h"
+
+1266424684 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/DARSRenderer.cpp
+	"DARSRenderer.h"
+
+1266424739 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/Sprite.cpp
+	"Sprite.h"
+
+1266424684 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS_/src/dars_node.cpp
+	"dars_node.h"
+	"SpriteManager.h"
+	"DARSRenderer.h"
+
+1265914164 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/Animation.cpp
+	"Animation.h"
+
+1266804379 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/Animation.h
+	"DARSCommon.h"
+
+1266841967 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/DARSCommon.h
+	<map>
+	<list>
+	<ctime>
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+	<boost/shared_ptr.hpp>
+	<boost/ptr_container/ptr_map.hpp>
+	<boost/ptr_container/ptr_vector.hpp>
+	"GLee.h"
+	<GL/gl.h>
+	<GL/glu.h>
+	"soil/SOIL.h"
+	"xml/tinyxml.h"
+	<windows.h>
+	<sys/timeb.h>
+	<whatever.h>
+
+1223335912 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/GLee.h
+	<windows.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	<stddef.h>
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/soil/SOIL.h
+
+1259747884 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/xml/tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1178466084 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/xml/tinystr.h
+	<assert.h>
+	<string.h>
+
+1266845357 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/DARS.cpp
+	"DARS.h"
+
+1266805165 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/DARS.h
+	"DARSCommon.h"
+	"DARSRenderer.h"
+
+1266845340 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/DARSRenderer.h
+	"DARSShader.h"
+	"DARSCommon.h"
+	"SpriteManager.h"
+
+1266051728 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/DARSShader.h
+	<windows.h>
+	<map>
+	<fstream>
+	<iostream>
+	<string>
+	<vector>
+	"DARSCommon.h"
+	"DARSShaderStrings.h"
+
+1266053396 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/DARSShaderStrings.h
+	"DARSCommon.h"
+
+1266841967 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/SpriteManager.h
+	"DARSCommon.h"
+	"Sprite.h"
+	"dars_node.h"
+
+1266841967 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/Sprite.h
+	"DARSCommon.h"
+	"Animation.h"
+	"DARSShader.h"
+
+1266846763 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/dars_node.h
+	"DARSCommon.h"
+	"Sprite.h"
+
+1266425540 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/DARSLog.cpp
+	"DARSCommon.h"
+
+1266846715 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/DARSRenderer.cpp
+	"DARSRenderer.h"
+
+1223335912 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/GLee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"GLee.h"
+	<Carbon/Carbon.h>
+
+1266261928 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/ParticleSystem.cpp
+	"ParticleSystem.h"
+
+1266499105 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/ParticleSystem.h
+	"DARSCommon.h"
+
+1266805165 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/Sprite.cpp
+	"Sprite.h"
+
+1266841598 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/SpriteManager.cpp
+	"SpriteManager.h"
+
+1266843458 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/dars_node.cpp
+	"dars_node.h"
+	"SpriteManager.h"
+	"DARSRenderer.h"
+	"DARS.h"
+
+1263978158 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/soil/SOIL.c
+	<windows.h>
+	<wingdi.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<Carbon/Carbon.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	"SOIL.h"
+	"stb_image_aug.h"
+	"image_helper.h"
+	"image_DXT.h"
+	<stdlib.h>
+	<string.h>
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/soil/stb_image_aug.h
+	<stdio.h>
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/soil/image_helper.h
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/soil/image_DXT.h
+
+1263978156 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/soil/image_DXT.c
+	"image_DXT.h"
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+
+1263978158 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/soil/image_helper.c
+	"image_helper.h"
+	<stdlib.h>
+	<math.h>
+
+1263978158 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/soil/stb_image_aug.c
+	"stb_image_aug.h"
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+	"stbi_DDS_aug.h"
+	"stbi_DDS_aug_c.h"
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/soil/stbi_DDS_aug.h
+
+1263978158 /home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/soil/stbi_DDS_aug_c.h
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/xml/tinystr.cpp
+	"tinystr.h"
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/xml/tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/xml/tinyxmlerror.cpp
+	"tinyxml.h"
+
+1178466084 source:/home/orm/Projects/ProjectData2D/linux/ProjectData2D/DARS/src/xml/tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+

@@ -1,0 +1,34 @@
+<spritesheet name="Zero" sheet_source="resources/zerox45.png">
+	
+	<image_properties width="733" height="1869" />
+	
+	<animation name="Transport_Zero">
+		<frame>
+			<top_left x="6" y="8" />
+			<bottom_right x="15" y="97" />
+		</frame>
+		<frame>
+			<top_left x="21" y="8" />
+			<bottom_right x="30" y="97" />
+		</frame>
+		<frame>
+			<top_left x="35" y="8" />
+			<bottom_right x="55" y="97" />
+		</frame>
+		<frame>
+			<top_left x="61" y="8" />
+			<bottom_right x="94" y="97" />
+		</frame>
+		<frame>
+			<top_left x="98" y="8" />
+			<bottom_right x="157" y="97" />
+		</frame>
+	</animation>
+	
+	<animation name="">
+		<frame>
+			<top_left x="" y="" />
+			<bottom_right x="" y="" />
+		</frame>
+	</animation>
+</spritesheet>

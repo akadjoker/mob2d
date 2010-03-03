@@ -1,0 +1,40 @@
+DARS is part of my project entitled "Project Data", which is a project that aims to provide
+various middleware packages designed for 2D game development. They will be distributed in both
+source and static library form, and be an abstraction layer over various other frameworks. It
+is an effort to break down my game engine, the DATA engine, into more manageable chunks. They may be used
+together or spearate. It doesn't matter. However, they will be optimized to work well with each other.
+
+The middleware packages planned are:
+
+	DAAP - DAta APplication (built on GLFW and homebrew object management system)
+		This will handle input and window handling as well as provide an easy way to use all the other 
+		middleware packages together.
+
+	DARS - DAta Rendering System (built on OpenGL)
+		This is the sprite engine.
+
+	DASS - DAta Sound System (built on OpenAL)
+		Duh.
+
+	DAPH - DAta PHysics (built on Bullet or Box2D)
+		Double duh.
+
+All packages will use Boost somewhere in their code and all packages will follow a singleton convention where
+a pointer to the API class, which shares the name of the package, will have to be obtained before any API
+functions can be used. That is done by standard C++ singleton syntax:
+
+	Class::GetInstance()->Function();
+
+For example, if one wants to use a function in DASS, then in their code they must call:
+	
+	// Although contrary to standard convention, I prefer a less verbose method of obtaining the pointer.
+	DASS::api()->Function();
+
+This provides a clean interface for the end user to work with and keeps the internals clean as well. It takes full
+advantage of C++'s object oriented structure. The different packages must always be initalized before they can be
+used. They will not do this automatically. This is to keep the engine relatively thread safe.
+
+The basic concepts behind the systems are that an API class exposes initalization and resource management functions,
+and then manipulation of those resources are done automatically or through resource handles that are integrated into
+the users existing framework. At no time should the programmer be able to, or even need to use the internal classes
+that make the engine tick.
