@@ -183,17 +183,15 @@
 1267878072 /home/orm/Projects/Mob2D/libMob2D/src/Animation.h
 	"Mob2DCommon.h"
 
-1267774662 /home/orm/Projects/Mob2D/libMob2D/src/Mob2DCommon.h
+1267881540 /home/orm/Projects/Mob2D/libMob2D/src/Mob2DCommon.h
 	<map>
 	<list>
-	<ctime>
 	<vector>
 	<string>
 	<fstream>
+	<string.h>
 	<iostream>
 	<boost/shared_ptr.hpp>
-	<boost/ptr_container/ptr_map.hpp>
-	<boost/ptr_container/ptr_vector.hpp>
 	<boost/unordered_map.hpp>
 	"GLee.h"
 	<GL/gl.h>
@@ -286,7 +284,7 @@
 1267634685 source:/home/orm/Projects/Mob2D/libMob2D/src/SpriteManager.cpp
 	"SpriteManager.h"
 
-1267829923 source:/home/orm/Projects/Mob2D/libMob2D/src/mob2d_node.cpp
+1267880644 source:/home/orm/Projects/Mob2D/libMob2D/src/mob2d_node.cpp
 	"mob2d_node.h"
 	"SpriteManager.h"
 	"Mob2DRenderer.h"

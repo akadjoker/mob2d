@@ -9,6 +9,19 @@ This is the main resource header. This contains the following:
 	* Utility functions.
 	* Typedefs for numerous default data types as well as some STL objects.
 	* Apropriate Licensing Information for open source libraries used in this engine as well as Licensing for this library itself.
+
+Contact me at 0rrm1k@gmail.com if you have any questions or meet me on irc. I can usually be found on:
+
+EFnet    @ #c++, #opengl, #opengl2d
+Afternet @ #gamedev
+
+*/
+
+/*
+    Mental note:
+        cd ~/Projects <-
+        cp Mob2D Mob2Dsvn<-
+        svn commit Mob2Dsvn --username 0rrm1k <-
 */
 
 /* PRIORITIZED TODO AND FIXME LIST */
@@ -20,23 +33,20 @@ This is the main resource header. This contains the following:
 // TODO Very Low Priority: Create resource tools for subdividing spritesheets, creating particle systems, etc...
 //      Have someone else do that.
 
-#define Mob2D_USE_VERT_ARRAYS
-// #define Mob2D_USE_VBO
-
 //-----STANDARD-----//
 #include <map>
 #include <list>
-#include <ctime>
+// #include <ctime>
 #include <vector>
 #include <string>
 #include <fstream>
+#include <string.h> // FINE! WE'LL DO IT YOUR WAY!
 #include <iostream>
 
 #include <boost/shared_ptr.hpp>
-#include <boost/ptr_container/ptr_map.hpp>
-#include <boost/ptr_container/ptr_vector.hpp>
+// #include <boost/ptr_container/ptr_map.hpp>
+// #include <boost/ptr_container/ptr_vector.hpp>
 
-// Drew a weird flashing box at the bottom of the screen, but otherwise rendered everything fine.
 #include <boost/unordered_map.hpp> // Tested this out. Didn't work well.
 
 //-----OpenGL-----//
