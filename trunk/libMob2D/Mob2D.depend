@@ -177,13 +177,13 @@
 1267629103 source:/home/orm/Projects/ProjectData2D/ProjectData2D/DARS/libDARS/src/SpriteManager.cpp
 	"SpriteManager.h"
 
-1267456278 source:/home/orm/Projects/Mob2D/libMob2D/src/Animation.cpp
+1267879123 source:/home/orm/Projects/Mob2D/libMob2D/src/Animation.cpp
 	"Animation.h"
 
-1267628766 /home/orm/Projects/Mob2D/libMob2D/src/Animation.h
+1267878072 /home/orm/Projects/Mob2D/libMob2D/src/Animation.h
 	"Mob2DCommon.h"
 
-1267634161 /home/orm/Projects/Mob2D/libMob2D/src/Mob2DCommon.h
+1267774662 /home/orm/Projects/Mob2D/libMob2D/src/Mob2DCommon.h
 	<map>
 	<list>
 	<ctime>
@@ -195,7 +195,6 @@
 	<boost/ptr_container/ptr_map.hpp>
 	<boost/ptr_container/ptr_vector.hpp>
 	<boost/unordered_map.hpp>
-	<boost/ptr_container/ptr_map.hpp>
 	"GLee.h"
 	<GL/gl.h>
 	<GL/glu.h>
@@ -215,10 +214,10 @@
 	"GLee.h"
 	<Carbon/Carbon.h>
 
-1267634665 source:/home/orm/Projects/Mob2D/libMob2D/src/Mob2D.cpp
+1267772873 source:/home/orm/Projects/Mob2D/libMob2D/src/Mob2D.cpp
 	"Mob2D.h"
 
-1267634658 /home/orm/Projects/Mob2D/libMob2D/src/Mob2D.h
+1267647240 /home/orm/Projects/Mob2D/libMob2D/src/Mob2D.h
 	"Mob2DCommon.h"
 	"Mob2DRenderer.h"
 
@@ -227,7 +226,7 @@
 	"Mob2DCommon.h"
 	"SpriteManager.h"
 
-1267628766 /home/orm/Projects/Mob2D/libMob2D/src/Mob2DShader.h
+1267879163 /home/orm/Projects/Mob2D/libMob2D/src/Mob2DShader.h
 	<windows.h>
 	<map>
 	<fstream>
@@ -241,7 +240,7 @@
 	"Sprite.h"
 	"mob2d_node.h"
 
-1267629215 /home/orm/Projects/Mob2D/libMob2D/src/Sprite.h
+1267878901 /home/orm/Projects/Mob2D/libMob2D/src/Sprite.h
 	"Mob2DCommon.h"
 	"Animation.h"
 	"Mob2DShader.h"
@@ -265,14 +264,14 @@
 
 1263978158 /home/orm/Projects/Mob2D/libMob2D/src/soil/SOIL.h
 
-1267634644 /home/orm/Projects/Mob2D/libMob2D/src/mob2d_node.h
+1267880353 /home/orm/Projects/Mob2D/libMob2D/src/mob2d_node.h
 	"Mob2DCommon.h"
 	"Sprite.h"
 
 1267628766 source:/home/orm/Projects/Mob2D/libMob2D/src/Mob2DLog.cpp
 	"Mob2DCommon.h"
 
-1267634673 source:/home/orm/Projects/Mob2D/libMob2D/src/Mob2DRenderer.cpp
+1267880304 source:/home/orm/Projects/Mob2D/libMob2D/src/Mob2DRenderer.cpp
 	"Mob2DRenderer.h"
 
 1266261928 source:/home/orm/Projects/Mob2D/libMob2D/src/ParticleSystem.cpp
@@ -281,13 +280,13 @@
 1267628766 /home/orm/Projects/Mob2D/libMob2D/src/ParticleSystem.h
 	"Mob2DCommon.h"
 
-1267628766 source:/home/orm/Projects/Mob2D/libMob2D/src/Sprite.cpp
+1267879664 source:/home/orm/Projects/Mob2D/libMob2D/src/Sprite.cpp
 	"Sprite.h"
 
 1267634685 source:/home/orm/Projects/Mob2D/libMob2D/src/SpriteManager.cpp
 	"SpriteManager.h"
 
-1267629194 source:/home/orm/Projects/Mob2D/libMob2D/src/mob2d_node.cpp
+1267829923 source:/home/orm/Projects/Mob2D/libMob2D/src/mob2d_node.cpp
 	"mob2d_node.h"
 	"SpriteManager.h"
 	"Mob2DRenderer.h"
@@ -360,4 +359,7 @@
 	<stddef.h>
 	"tinyxml.h"
 	<windows.h>
+
+1267879225 source:/home/orm/Projects/Mob2D/libMob2D/src/Mob2DShader.cpp
+	"Mob2DShader.h"
 

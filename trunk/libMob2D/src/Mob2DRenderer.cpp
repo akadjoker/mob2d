@@ -43,13 +43,20 @@ void Mob2DRenderer::Render()
 		{
             current_image = (*i).second->m_sprite->GetImageHandle();
 
-            glEnable(GL_TEXTURE_2D);
+/*
+            // These are dependent on whether or not the sprite is shader enabled.
 
             glEnableClientState(GL_TEXTURE_COORD_ARRAY);
             glEnableClientState(GL_VERTEX_ARRAY);
+*/
+            if(!(*i).second->m_sprite->shader_enabled)
+            {
+                glEnable(GL_TEXTURE_2D);
+            }
 
             // if the texture is already bound, there's no need to rebind it. I'm taking advantage of the
             // stl::multimap's native sorting capabilities here.
+            glActiveTexture(GL_TEXTURE0);
             if(current_image != previous_image)
                 glBindTexture(GL_TEXTURE_2D, (*i).second->m_sprite->GetImageHandle());
 
@@ -58,17 +65,14 @@ void Mob2DRenderer::Render()
                 (*i).second->DrawToScreen();
             else
                 (*i).second->Draw();
-
+/*
             glDisableClientState(GL_VERTEX_ARRAY);
             glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
             glDisable(GL_TEXTURE_2D);
-
+*/
+            glDisable(GL_TEXTURE_2D);
             previous_image = current_image;
-        }
-        else
-        {
-            std::cout<<"Object culled.\n";
         }
     }
 }

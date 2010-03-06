@@ -51,17 +51,18 @@
 		</Linker>
 		<Unit filename="src/Animation.cpp" />
 		<Unit filename="src/Animation.h" />
+		<Unit filename="src/GLee.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/GLee.h" />
 		<Unit filename="src/Mob2D.cpp" />
 		<Unit filename="src/Mob2D.h" />
 		<Unit filename="src/Mob2DCommon.h" />
 		<Unit filename="src/Mob2DLog.cpp" />
 		<Unit filename="src/Mob2DRenderer.cpp" />
 		<Unit filename="src/Mob2DRenderer.h" />
+		<Unit filename="src/Mob2DShader.cpp" />
 		<Unit filename="src/Mob2DShader.h" />
-		<Unit filename="src/GLee.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src/GLee.h" />
 		<Unit filename="src/ParticleSystem.cpp" />
 		<Unit filename="src/ParticleSystem.h" />
 		<Unit filename="src/Sprite.cpp" />

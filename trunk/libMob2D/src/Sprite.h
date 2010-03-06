@@ -21,13 +21,14 @@ Also transient, if you're reading this, you and your XML abstraction idea can ju
 */
 class Sprite
 {
+    /*
     struct SprAlpha
     {
         GLfloat red;
         GLfloat green;
         GLfloat blue;
     };
-
+    */
 	public:
 		Sprite();
 		Sprite(string file);
@@ -41,8 +42,8 @@ class Sprite
 
 		GLuint GetImageHandle()              { return image_handle;}
 
-		pAnimation GetAnimation(string anim);
         uint GetMaxFrames(string anim);
+		pAnimation GetAnimation(string anim);
         Frame GetFrame(string anim, uint frame);
 
         Frame SetFrameData(int tl_x, int tl_y, int br_x, int br_y);
@@ -55,27 +56,29 @@ class Sprite
 		int image_height;
 
         bool error_flag;
-
-		SprAlpha alpha_color;
+        bool shader_enabled; // Not all sprites have to have a shader. Those that do will, use them.
 
     /// Handle to the image stored in memory.
 		GLuint image_handle;
 
     /// Shader that the sprite runs.
-		Mob2DFx m_shader_program;
+		M2DFx shader;
 
         // hash map implimentation.
         // boost::unordered_map<string, pAnimation> animations;
         std::map<string, pAnimation> animations;
+
+        //GLfloat alpha_color[3];
 
         void CreateDefaultAnimation();
 
         bool LoadImageProperties(TiXmlElement* root);
         bool LoadAnimations(TiXmlElement* root);
         bool LoadImageData(TiXmlElement* root);
-        bool LoadShaderProgram(TiXmlElement* root);
+        bool LoadShaderProgram(TiXmlElement* root); // Loads the shader strings from the XML file. Will need to make sure newlines are preserved.
         void LoadAnimationFrame(TiXmlElement* frame_element, pAnimation anim);
 
         friend class mob2d_node;
+        friend class Mob2DRenderer;
 };
 #endif

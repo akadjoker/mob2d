@@ -30,13 +30,6 @@ instance of this until that said game instance is deallocated.
 class mob2d_node
 {
     protected:
-		struct SprBlend
-		{
-			GLfloat red;
-			GLfloat green;
-			GLfloat blue;
-		};
-
     // These should never be called outside the system. //
 
 		void ReassignToSprite(pSprite sprite);
@@ -44,11 +37,11 @@ class mob2d_node
     /// Called by the renderer to draw the sprite.
 		void Draw();
 
+		void DrawFixedFunction();
+		void DrawShader();
+
     /// Draws the sprite to the screen coordinates.
 		void DrawToScreen();
-
-    /// Draws an error.
-        void DrawError();
 
     /// Int denoting what frame it is on.
 		uint frame;
@@ -62,6 +55,7 @@ class mob2d_node
     /// Positional data, angular data, and scalar data.
 		float x;
 		float y;
+		float layer; // z
 		float angle;
         float scale_x;
         float scale_y;
@@ -70,7 +64,7 @@ class mob2d_node
 		string animation;
 
     /// Will be used more when shaders are implimented.
-		SprBlend blend_color;
+		GLfloat blend_color[3];
 
     /// This is used to provide direct access to the Sprite resource rather than looking it up through the sprite cache.
 		pSprite m_sprite;

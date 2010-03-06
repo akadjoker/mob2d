@@ -1,8 +1,8 @@
-// The only include you need for the system
-
 // #define WINDOWS // uncomment this to build on windows.
 #define LINUX // comment this out to build on windows.
 
+
+// The only include you need for the system
 #include "../libMob2D/src/Mob2D.h"
 #include <GL/glfw.h>
 
@@ -21,7 +21,7 @@ uint32_t GetTickCount(void)
 }
 #endif
 
-const int TICKS_PER_SECOND = 1; // This is how many times per second DARSNode::StepFrame() will be called.
+const int TICKS_PER_SECOND = 10; // This is how many times per second DARSNode::StepFrame() will be called.
 const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
 const int MAX_FRAMESKIP = 5;
 

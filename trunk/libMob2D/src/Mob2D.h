@@ -6,7 +6,7 @@
 
 /**
 Mob2DCoord:
-A coordinate pair used specifically by GetWorldCoords(int win_x. int win_y);
+A coordinate pair used specifically by GetWorldCoords(int win_x, int win_y);
 */
 struct Mob2DCoord
 {
@@ -68,7 +68,7 @@ class Mob2D
         void SetClearColor(float r, float g, float b);
 
     /// Given the screen coordinates, this function will return the world coordinates useful for screen
-    /// rendering and mouse checking.
+    /// rendering and mouse checking no matter what the viewport zoom is like.
         Mob2DCoord GetWorldCoords(int x, int y);
 
     //-----LOG FUNCTIONS-----//

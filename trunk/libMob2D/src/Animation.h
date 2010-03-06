@@ -6,7 +6,7 @@
 struct Frame
 {
     GLfloat texture_coords[8];
-    GLfloat vertex_array[8];
+    GLfloat vertex_array[12];
 };
 class Animation
 {

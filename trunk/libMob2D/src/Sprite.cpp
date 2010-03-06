@@ -1,4 +1,4 @@
-#include "Sprite.h"S
+#include "Sprite.h"
 
 Sprite::Sprite()
 {
@@ -31,28 +31,40 @@ Sprite::Sprite(string file)
             name = root->Attribute("name"); // The name parameter.
 
             if(!LoadImageProperties(root))
-                Mob2DLog::Instance()->PushString("Sprite sheet declaration invalid. No <image_properties>.\n");
-            if(!LoadAnimations(root))
-                Mob2DLog::Instance()->PushString("Animations could not be loaded. Check your frame declarations!\n");
-            if(!LoadImageData(root))
-                Mob2DLog::Instance()->PushString("Image data could not be loaded. Is the sheet_source attribute in the <spritesheet> valid?\n");
+                Mob2DLog::Instance()->PushString("Sprite sheet declaration invalid. No <image_properties>.("+file+")\n");
 
-            Mob2DLog::Instance()->PushString("Spritesheet \""+name+"\" successfuly loaded.\n");
+            if(!LoadAnimations(root))
+                Mob2DLog::Instance()->PushString("Animations could not be loaded. Check your frame declarations!("+file+")\n");
+
+            if(!LoadShaderProgram(root))
+            {
+                Mob2DLog::Instance()->PushString("No shader program specified or the shader source is invalid.("+file+")\n");
+                Mob2DLog::Instance()->PushString("Shaders will be disabled for this sprite.("+file+")\n");
+                Mob2DLog::Instance()->PushString("Rendering in fixed function mode.("+file+")\n");
+                shader_enabled = false;
+            }
+
+            if(!LoadImageData(root))
+                Mob2DLog::Instance()->PushString("Image data could not be loaded. Is the sheet_source attribute in <spritesheet> valid?("+file+")\n");
         }
         else
         {
-            Mob2DLog::Instance()->PushString("Sprite sheet declaration invalid. No <spritesheet>.\n");
+            Mob2DLog::Instance()->PushString("Sprite sheet declaration invalid ("+file+"). No <spritesheet>.\n");
             error_flag = true;
         }
 	}
 	else
 	{
 	    if(doc.Error())
-            Mob2DLog::Instance()->PushString("The document has errors in it. Fix the errors and check your tags!\n");
+            Mob2DLog::Instance()->PushString("The document has errors in it. Fix the errors and check your tags!("+file+")\n");
         if(!loaded)
-            Mob2DLog::Instance()->PushString("Could not load definition file for sprite.\n");
+            Mob2DLog::Instance()->PushString("Could not load definition file for sprite.("+file+")\n");
 		error_flag = true;
 	}
+	if(!error_flag)
+        Mob2DLog::Instance()->PushString("Spritesheet successfuly loaded.("+file+")\n");
+    else
+        Mob2DLog::Instance()->PushString("Spritesheet loading failed somehow. Check the log for details.("+file+")\n");
 }
 bool Sprite::LoadImageProperties(TiXmlElement* root)
 {
@@ -61,14 +73,13 @@ bool Sprite::LoadImageProperties(TiXmlElement* root)
     {
         props_element->QueryIntAttribute("width", &image_width);
         props_element->QueryIntAttribute("height", &image_height);
-        error_flag = false;
-        return true;
     }
     else
     {
         error_flag = true;
         return false;
     }
+    return true;
 }
 // if a spritesheet definition does not have at least one animation element with at least one frame element, then it is invalid.
 bool Sprite::LoadAnimations(TiXmlElement* root)
@@ -92,9 +103,9 @@ bool Sprite::LoadAnimations(TiXmlElement* root)
 					LoadAnimationFrame(frame_element, anim);
 			else
 			{
-				Mob2DLog::Instance()->PushString("No frames for this spritesheet animation.");
-				error_flag = true;
-				return error_flag;
+			    // create a default frame to point to instead of marking the whole sheet invalid.
+				Mob2DLog::Instance()->PushString("Frame element invalid. Error frame created for the animation.\n");
+				anim->AddFrame(SetFrameData(0,0,0,0));
 			}
             anim_name = anim_element->Attribute("name");
             animations.insert(std::pair<string, pAnimation>(anim_name, anim));
@@ -102,27 +113,52 @@ bool Sprite::LoadAnimations(TiXmlElement* root)
 	}
 	else
 	{
-		Mob2DLog::Instance()->PushString("No animations for this spritesheet. Sheet marked as invalid.");
+		Mob2DLog::Instance()->PushString("No animations for this spritesheet.\n");
 		error_flag = true;
 		return false;
 	}
 	return true;
 //	Mob2DLog::Instance()->PushString("Spritesheet loaded.\n");
 }
+bool Sprite::LoadShaderProgram(TiXmlElement* root)
+{
+    TiXmlElement* shader_element = root->FirstChildElement("shader");
+    string vertex_shader, fragment_shader;
+
+    if(shader_element)
+    {
+        TiXmlElement* vert_elem = shader_element->FirstChildElement("vertex");
+        TiXmlElement* frag_elem = shader_element->FirstChildElement("fragment");
+
+        vertex_shader = vert_elem->Attribute("file");
+        fragment_shader = frag_elem->Attribute("file");
+
+        shader.initialize(vertex_shader, fragment_shader);
+        return true;
+        // std::cout<<"VERTEX SHADER\n\n"<<vertex_shader<<"\n\nFRAGMENT SHADER\n\n"<<fragment_shader<<"\n\n";
+    }
+    else
+        return false;
+}
+
 void Sprite::LoadAnimationFrame(TiXmlElement* frame_element, pAnimation anim)
 {
     TiXmlElement* tl_elem = frame_element->FirstChildElement("top_left");
     TiXmlElement* br_elem = frame_element->FirstChildElement("bottom_right");
 
-    int top_left_x;
-    int top_left_y;
-    int bottom_right_x;
-    int bottom_right_y;
-
-	tl_elem->QueryIntAttribute("x", &top_left_x);
-	tl_elem->QueryIntAttribute("y", &top_left_y);
-	br_elem->QueryIntAttribute("x", &bottom_right_x);
-	br_elem->QueryIntAttribute("y", &bottom_right_y);
+    int top_left_x;     int top_left_y;
+    int bottom_right_x; int bottom_right_y;
+    if(tl_elem && br_elem)
+    {
+        tl_elem->QueryIntAttribute("x", &top_left_x);
+        tl_elem->QueryIntAttribute("y", &top_left_y);
+        br_elem->QueryIntAttribute("x", &bottom_right_x);
+        br_elem->QueryIntAttribute("y", &bottom_right_y);
+    }
+    else
+    {
+        top_left_x = top_left_y = bottom_right_x = bottom_right_y = 0;
+    }
 
     anim->AddFrame(SetFrameData(top_left_x, top_left_y, bottom_right_x, bottom_right_y));
 }
@@ -168,10 +204,10 @@ Frame Sprite::SetFrameData(int tl_x, int tl_y, int br_x, int br_y)
 	width = (GLfloat)((br_x - tl_x) / 2);
 	height = (GLfloat)((br_y - tl_y) / 2);
 
-	frame.vertex_array[0] = -width; frame.vertex_array[1] = height; // lower left
-	frame.vertex_array[2] = width; frame.vertex_array[3] = height; // lower right
-	frame.vertex_array[4] = width; frame.vertex_array[5] = -height; // upper right
-	frame.vertex_array[6] = -width; frame.vertex_array[7] = -height; // upper left
+	frame.vertex_array[0] = -width; frame.vertex_array[1] = height; frame.vertex_array[2] = 0.0f; // lower left
+	frame.vertex_array[3] = width; frame.vertex_array[4] = height; frame.vertex_array[5] = 0.0f; // lower right
+	frame.vertex_array[6] = width; frame.vertex_array[7] = -height; frame.vertex_array[8] = 0.0f; // upper right
+	frame.vertex_array[9] = -width; frame.vertex_array[10] = -height; frame.vertex_array[11] = 0.0f; // upper left
 
 	// bottom left
 	frame.texture_coords[0] = (GLfloat)((GLfloat)tl_x/(GLfloat)image_width);
@@ -198,7 +234,6 @@ void Sprite::CreateDefaultAnimation()
     pAnimation anim(new Animation());
     anim->AddFrame(SetFrameData(0,0,0,0));
     animations["ERROR"] = anim;
-    // animations.insert(std::pair<string, pAnimation>("ERROR", anim));
 }
 
 // upper left - -

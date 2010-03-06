@@ -47,10 +47,10 @@ void Animation::SetFrame(Frame frame, int image_width, int image_height, int tl_
 	width = (GLfloat)((br_x - tl_x) / 2);
 	height = (GLfloat)((br_y - tl_y) / 2);
 
-	frame.vertex_array[0] = -width; frame.vertex_array[1] = height; // lower left
-	frame.vertex_array[2] = width; frame.vertex_array[3] = height; // lower right
-	frame.vertex_array[4] = width; frame.vertex_array[5] = -height; // upper right
-	frame.vertex_array[6] = -width; frame.vertex_array[7] = -height; // upper left
+	frame.vertex_array[0] = -width; frame.vertex_array[1] = height; frame.vertex_array[2] = 0.0f; // lower left
+	frame.vertex_array[3] = width; frame.vertex_array[4] = height; frame.vertex_array[5] = 0.0f; // lower right
+	frame.vertex_array[6] = width; frame.vertex_array[7] = -height; frame.vertex_array[8] = 0.0f; // upper right
+	frame.vertex_array[9] = -width; frame.vertex_array[10] = -height; frame.vertex_array[11] = 0.0f; // upper left
 
 	// bottom left
 	frame.texture_coords[0] = (GLfloat)((GLfloat)tl_x/(GLfloat)image_width);
