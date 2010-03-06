@@ -103,9 +103,9 @@ bool Sprite::LoadAnimations(TiXmlElement* root)
 					LoadAnimationFrame(frame_element, anim);
 			else
 			{
-			    // create a default frame to point to instead of marking the whole sheet invalid.
+			    // create a zeroed frame instead of screwing the whole sheet over it.
 				Mob2DLog::Instance()->PushString("Frame element invalid. Error frame created for the animation.\n");
-				anim->AddFrame(SetFrameData(0,0,0,0));
+				anim->AddFrame(image_width,image_height,0,0,0,0);
 			}
             anim_name = anim_element->Attribute("name");
             animations.insert(std::pair<string, pAnimation>(anim_name, anim));
@@ -159,8 +159,7 @@ void Sprite::LoadAnimationFrame(TiXmlElement* frame_element, pAnimation anim)
     {
         top_left_x = top_left_y = bottom_right_x = bottom_right_y = 0;
     }
-
-    anim->AddFrame(SetFrameData(top_left_x, top_left_y, bottom_right_x, bottom_right_y));
+    anim->AddFrame(image_width, image_height, top_left_x, top_left_y, bottom_right_x, bottom_right_y);
 }
 bool Sprite::LoadImageData(TiXmlElement* root)
 {
@@ -188,14 +187,7 @@ pAnimation Sprite::GetAnimation(string anim)
     else
         return animations["ERROR"];
 }
-uint Sprite::GetMaxFrames(string anim)
-{
-    return GetAnimation(anim)->GetMaxFrames();
-}
-Frame Sprite::GetFrame(string anim, uint frame)
-{
-    return GetAnimation(anim)->GetFrame(frame);
-}
+/*
 Frame Sprite::SetFrameData(int tl_x, int tl_y, int br_x, int br_y)
 {
     Frame frame;
@@ -228,14 +220,41 @@ Frame Sprite::SetFrameData(int tl_x, int tl_y, int br_x, int br_y)
     // DERRRRRRRRRRRRRRRRRRRRRRRRRRP! I NEVER RETURNED IT! A testimate to my occasional short-sightendess.
     return frame;
 }
-
+*/
 void Sprite::CreateDefaultAnimation()
 {
     pAnimation anim(new Animation());
-    anim->AddFrame(SetFrameData(0,0,0,0));
+    anim->AddFrame(0,0,0,0,0,0);
     animations["ERROR"] = anim;
 }
-
+int Sprite::GetImageHeight()
+{
+    return image_height;
+}
+int Sprite::GetImageWidth()
+{
+    return image_width;
+}
+string Sprite::GetName()
+{
+    return name;
+}
+bool Sprite::error()
+{
+    return error_flag;
+}
+GLuint Sprite::GetImageHandle()
+{
+    return image_handle;
+}
+uint Sprite::GetMaxFrames(string anim)
+{
+    return GetAnimation(anim)->GetMaxFrames();
+}
+Frame Sprite::GetFrame(string anim, uint frame)
+{
+    return GetAnimation(anim)->GetFrame(frame);
+}
 // upper left - -
 // upper right + -
 // lower right + +

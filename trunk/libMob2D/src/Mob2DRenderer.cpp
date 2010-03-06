@@ -18,6 +18,15 @@ void Mob2DRenderer::Init(uint window_width, uint window_height, uint view_width,
         m_bc.radius = view_height;
 
     m_bc.x = m_bc.y = camera_data[0];
+
+    GLfloat debug_color_arr[3];
+    debug_color_arr[0] = 100/256;
+    debug_color_arr[1] = 245/256;
+    debug_color_arr[2] = 25/256;
+
+    glGenBuffers(1, &debug_color);
+    glBindBuffer(GL_ARRAY_BUFFER, debug_color);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*3, debug_color_arr, GL_DYNAMIC_DRAW);
 }
 void Mob2DRenderer::Render()
 {
@@ -43,17 +52,6 @@ void Mob2DRenderer::Render()
 		{
             current_image = (*i).second->m_sprite->GetImageHandle();
 
-/*
-            // These are dependent on whether or not the sprite is shader enabled.
-
-            glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-            glEnableClientState(GL_VERTEX_ARRAY);
-*/
-            if(!(*i).second->m_sprite->shader_enabled)
-            {
-                glEnable(GL_TEXTURE_2D);
-            }
-
             // if the texture is already bound, there's no need to rebind it. I'm taking advantage of the
             // stl::multimap's native sorting capabilities here.
             glActiveTexture(GL_TEXTURE0);
@@ -61,18 +59,11 @@ void Mob2DRenderer::Render()
                 glBindTexture(GL_TEXTURE_2D, (*i).second->m_sprite->GetImageHandle());
 
             // Take it to the node. The node is what holds the draw routine. Class Mob2D_node.
-            if((*i).second->draw_to_screen)
-                (*i).second->DrawToScreen();
-            else
-                (*i).second->Draw();
-/*
-            glDisableClientState(GL_VERTEX_ARRAY);
-            glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+            // It also automatically uses its internal parameters
+            (*i).second->Draw();
 
-            glDisable(GL_TEXTURE_2D);
-*/
-            glDisable(GL_TEXTURE_2D);
             previous_image = current_image;
+            glBindBuffer(GL_ARRAY_BUFFER, 0);
         }
     }
 }

@@ -41,14 +41,27 @@ void mob2d_node::Draw()
 }
 void mob2d_node::DrawFixedFunction()
 {
+    GLfloat width = m_sprite->GetAnimation(animation)->max_width,
+            height = m_sprite->GetAnimation(animation)->max_height;
+
+    GLfloat varray[12];
+
+    varray[0] = -width; varray[1] = height; varray[2] = 0.0f; // lower left
+    varray[3] = width; varray[4] = height; varray[5] = 0.0f; // lower right
+    varray[6] = width; varray[7] = -height; varray[8] = 0.0f; // upper right
+    varray[9] = -width; varray[10] = -height; varray[11] = 0.0f; // upper left
+
+// VBO
+    glEnable(GL_TEXTURE_2D);
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
     glPushMatrix();
-        glVertexPointer(3, GL_FLOAT, 0, m_sprite->GetFrame(animation, frame).vertex_array);
-        glTexCoordPointer(2, GL_FLOAT, 0, m_sprite->GetFrame(animation, frame).texture_coords);
 
-        glPushMatrix();
+        glBindBuffer(GL_ARRAY_BUFFER, m_sprite->GetFrame(animation, frame).vertex_buff);
+        glVertexPointer(3, GL_FLOAT, 0, 0);
+
+        glBindBuffer(GL_ARRAY_BUFFER, m_sprite->GetFrame(animation, frame).texture_coords_buff);
+        glTexCoordPointer(2, GL_FLOAT, 0, 0);
 
         glTranslatef(x, y, layer);
         glRotatef(angle, 0.0f, 0.0f, 1.0f);
@@ -56,15 +69,36 @@ void mob2d_node::DrawFixedFunction()
 
         glDrawArrays(GL_QUADS, 0, 4);
     glPopMatrix();
-
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
+    glDisable(GL_TEXTURE_2D);
+// DONE WITH THE TEXTURE_DRAWING
+
+// vvv NOW DRAW THE BOUNDING VOLUME vvv
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+
+    glPushMatrix();
+        glBindBuffer(GL_ARRAY_BUFFER, Mob2DRenderer::Instance()->debug_color);
+        glColorPointer(3, GL_FLOAT, 0, 0);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+        glVertexPointer(3, GL_FLOAT, 0, varray);
+
+        glTranslatef(x, y, layer);
+        glDrawArrays(GL_LINE_LOOP, 0, 4);
+    glPopMatrix();
+
+    glDisableClientState(GL_COLOR_ARRAY);
+    glDisableClientState(GL_VERTEX_ARRAY);
+// */
 }
 void mob2d_node::DrawShader()
 {
 }
 void mob2d_node::DrawToScreen()
-{
+{/*
     if(!m_sprite->error())
     {
         Mob2DCoord coord = Mob2D::API()->GetWorldCoords(x, y);
@@ -83,7 +117,9 @@ void mob2d_node::DrawToScreen()
 
         glPopMatrix();
     }
+    */
 }
+
 void mob2d_node::SetBlend(float r, float g, float b)
 {
 	GLfloat m_r = (GLfloat) r / 255,

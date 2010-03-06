@@ -2,7 +2,7 @@
 <CodeBlocks_workspace_file>
 	<Workspace title="Workspace">
 		<Project filename="../../OSound/OSound.cbp" />
-		<Project filename="Mob2D.cbp" active="1" />
-		<Project filename="../Mob2DTest/Mob2DTest.cbp" />
+		<Project filename="Mob2D.cbp" />
+		<Project filename="../Mob2DTest/Mob2DTest.cbp" active="1" />
 	</Workspace>
 </CodeBlocks_workspace_file>

@@ -7,7 +7,6 @@ This is the main resource header. This contains the following:
 		- OpenGL.
 		- STL containers (including string).
 	* Utility functions.
-	* Typedefs for numerous default data types as well as some STL objects.
 	* Apropriate Licensing Information for open source libraries used in this engine as well as Licensing for this library itself.
 
 Contact me at 0rrm1k@gmail.com if you have any questions or meet me on irc. I can usually be found on:
@@ -84,7 +83,3 @@ class Mob2DLog
 };
 #endif // ENGINELOG_H
 #endif // Mob2DCOMMON_H
-
-/*
-
-*/

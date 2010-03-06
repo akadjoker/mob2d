@@ -5,8 +5,15 @@
 
 struct Frame
 {
+/* // VA
     GLfloat texture_coords[8];
     GLfloat vertex_array[12];
+// */
+
+// VBO
+    GLuint texture_coords_buff;
+    GLuint vertex_buff;
+// */
 };
 class Animation
 {
@@ -14,30 +21,22 @@ class Animation
 		Animation();
 		virtual ~Animation() { };
 
-        float GetBoundingCircleRadius() { return bc_rad;        }
-        float GetMaxWidth()             { return max_width;     }
-        float GetMaxHeight()            { return max_height;    }
+        float GetBoundingCircleRadius();
+        float GetMaxWidth();
+        float GetMaxHeight();
 
-        uint GetMaxFrames()             { return frames.size(); }
+        uint GetMaxFrames();
         Frame GetFrame(uint frame);
 
-        void AddFrame(Frame frame);
+        Frame AddFrame(int image_width, int image_height, int tl_x, int tl_y, int br_x, int br_y, bool error=false);
+        // void AddFrame(Frame frame);
 
     protected:
 
-    // These functions should only ever be called once!
-		void SetAABBData();
-		void SetBoundingCircleData();
-
-    /// Creates a frame, sets the data, then pushes it into the frame vector.
-        void SetFrame(Frame frame, int image_width, int image_height, int tl_x, int tl_y, int br_x, int br_y);
-
     /// Axis Alligned Bounding Box used when more precise collision detection is required.
         float max_width;
+    /// Also, the larger value is returned as the bounding circle radius.
         float max_height;
-
-    /// Bounding circle radius.
-        float bc_rad;
 
         Frame error_frame;
 
@@ -45,6 +44,7 @@ class Animation
 
         // friend class Mob2D_node;
         friend class Sprite;
+        friend class mob2d_node;
 };
 typedef boost::shared_ptr<Animation> pAnimation;
 

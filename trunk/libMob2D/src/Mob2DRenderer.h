@@ -44,6 +44,8 @@ class Mob2DRenderer
     /// INTERNAL: Checks to see if a node is inside the viewport.
 		bool isInView(M2DNode node);
 
+		GLuint debug_color;
+
 		friend class Mob2D;
 		friend class mob2d_node;
 };

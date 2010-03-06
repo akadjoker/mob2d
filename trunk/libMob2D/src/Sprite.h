@@ -21,26 +21,18 @@ Also transient, if you're reading this, you and your XML abstraction idea can ju
 */
 class Sprite
 {
-    /*
-    struct SprAlpha
-    {
-        GLfloat red;
-        GLfloat green;
-        GLfloat blue;
-    };
-    */
 	public:
 		Sprite();
 		Sprite(string file);
 		~Sprite();
 
-		int GetImageHeight()                 { return image_height; }
-		int GetImageWidth()                  { return image_width; }
-		string GetName()                     { return name; }
+		int GetImageHeight();
+		int GetImageWidth();
+		string GetName();
 
-		bool error()                         { return error_flag; }
+		bool error();
 
-		GLuint GetImageHandle()              { return image_handle;}
+		GLuint GetImageHandle();
 
         uint GetMaxFrames(string anim);
 		pAnimation GetAnimation(string anim);
