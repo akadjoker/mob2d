@@ -61,8 +61,6 @@ Frame Animation::AddFrame(int image_width, int image_height, int tl_x, int tl_y,
     if(aabb_height > max_height)
         max_height = aabb_height;
 
-    std::cerr<<max_width<<" "<<max_height<<"\n";
-
     return frame;
 }
 Frame Animation::GetFrame(uint frame)

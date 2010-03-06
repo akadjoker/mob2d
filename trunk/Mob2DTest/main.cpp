@@ -21,7 +21,7 @@ uint32_t GetTickCount(void)
 }
 #endif
 
-const int TICKS_PER_SECOND = 10; // This is how many times per second DARSNode::StepFrame() will be called.
+const int TICKS_PER_SECOND = 30; // This is how many times per second DARSNode::StepFrame() will be called.
 const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
 const int MAX_FRAMESKIP = 5;
 
@@ -75,7 +75,7 @@ int main()
     app_node1->Translate(400, 100); // top side
     app_node2->Translate(700, 300); // right side
     app_node3->Translate(400, 500); // bottom side
-    app_node4->Translate(9001, 9001); // center*/
+    app_node4->Translate(400, 300); // center*/
 
 	// If an animation is not set for a node, then it will not display.
 	// Unset nodes default to the "ERROR" animation. Same thing occurs when an animation string is invalid.
