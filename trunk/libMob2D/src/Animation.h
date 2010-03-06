@@ -19,7 +19,14 @@ class Animation
 {
 	public:
 		Animation();
-		virtual ~Animation() { };
+		virtual ~Animation()
+		{
+		    for(std::vector<Frame>::iterator i = frames.begin(); i != frames.end(); i++)
+		    {
+		        glDeleteBuffers(GL_ARRAY_BUFFER, &(*i).texture_coords_buff);
+		        glDeleteBuffers(GL_ARRAY_BUFFER, &(*i).vertex_buff);
+		    }
+        }
 
         float GetBoundingCircleRadius();
         float GetMaxWidth();

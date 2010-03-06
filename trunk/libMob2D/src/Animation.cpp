@@ -4,7 +4,6 @@ Animation::Animation()
 {
     max_width = 0.0f;
     max_height = 0.0f;
-    bc_rad = 0.0f;
 
     error_frame = AddFrame(0,0,0,0,0,0, true);
 }
