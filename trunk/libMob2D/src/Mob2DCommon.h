@@ -14,29 +14,20 @@ Contact me at 0rrm1k@gmail.com if you have any questions or meet me on irc. I ca
 
 EFnet    @ #c++, #opengl, #opengl2d
 Afternet @ #gamedev
-
-*/
-
-/*
-    Mental note:
-        cd ~/Projects <-
-        cp Mob2D Mob2Dsvn<-
-        svn commit Mob2Dsvn --username 0rrm1k <-
 */
 
 /* PRIORITIZED TODO AND FIXME LIST */
 //
-// TODO Impliment shaders.
+// TODO Impliment shaders. Working on it!
 //
-// TODO Replace the OpenGL matrix management with Kazmath.
+// TODO Replace the OpenGL matrix management with Kazmath. Whenever I get around to it.
 //
 // TODO Very Low Priority: Create resource tools for subdividing spritesheets, creating particle systems, etc...
-//      Have someone else do that.
+//      CONTACT ME IF YOU WANT TO DO THIS!
 
 //-----STANDARD-----//
 #include <map>
 #include <list>
-// #include <ctime>
 #include <vector>
 #include <string>
 #include <fstream>
