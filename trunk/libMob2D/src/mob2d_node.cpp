@@ -41,16 +41,17 @@ void mob2d_node::Draw()
 }
 void mob2d_node::DrawFixedFunction()
 {
+/*
     GLfloat width = m_sprite->GetAnimation(animation)->max_width,
             height = m_sprite->GetAnimation(animation)->max_height;
 
     GLfloat varray[12];
 
-    varray[0] = -width; varray[1] = height; varray[2] = 0.0f; // lower left
-    varray[3] = width; varray[4] = height; varray[5] = 0.0f; // lower right
-    varray[6] = width; varray[7] = -height; varray[8] = 0.0f; // upper right
+    varray[0] = -width; varray[1]  = height;  varray[2]  = 0.0f; // lower left
+    varray[3] = width;  varray[4]  = height;  varray[5]  = 0.0f; // lower right
+    varray[6] = width;  varray[7]  = -height; varray[8]  = 0.0f; // upper right
     varray[9] = -width; varray[10] = -height; varray[11] = 0.0f; // upper left
-
+// */
 // VBO
     glEnable(GL_TEXTURE_2D);
     glEnableClientState(GL_VERTEX_ARRAY);
@@ -75,6 +76,7 @@ void mob2d_node::DrawFixedFunction()
     glDisable(GL_TEXTURE_2D);
 // DONE WITH THE TEXTURE_DRAWING
 
+/*
 // vvv NOW DRAW THE BOUNDING VOLUME vvv
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
