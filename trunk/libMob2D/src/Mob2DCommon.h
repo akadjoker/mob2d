@@ -23,7 +23,7 @@ Afternet @ #gamedev
 //
 // TODO Very Low Priority: Create resource tools for subdividing spritesheets, creating particle systems, etc...
 //      CONTACT ME IF YOU WANT TO DO THIS!
-
+// Review skeleton and bones of the skeleton.
 //-----STANDARD-----//
 #include <map>
 #include <list>
@@ -34,8 +34,6 @@ Afternet @ #gamedev
 #include <iostream>
 
 #include <boost/shared_ptr.hpp>
-// #include <boost/ptr_container/ptr_map.hpp>
-// #include <boost/ptr_container/ptr_vector.hpp>
 
 #include <boost/unordered_map.hpp> // Tested this out. Didn't work well.
 

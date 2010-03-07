@@ -66,6 +66,11 @@ int main()
 	M2DNode app_node3 = Mob2D::API()->AddNode("Zero");
     M2DNode app_node4 = Mob2D::API()->AddNode("Test_Image");
 
+    // The lower the layer number, the more things it will be drawn over.
+    // The value can be anywhere between -9001 and 9001
+    // Nodes default to layer 0.0f
+    //app_node3->SetLayer(-20.0f);
+
     // Example of using the error flag through the node.
     if(!app_node->isSpriteError()) { std::cout<<"No error.\n"; }
 	else { std::cout<<"Error.\n"; }
@@ -75,7 +80,11 @@ int main()
     app_node1->Translate(400, 100); // top side
     app_node2->Translate(700, 300); // right side
     app_node3->Translate(400, 500); // bottom side
-    app_node4->Translate(400, 300); // center*/
+    app_node4->Translate(400, 300); // bottom. this should be bellow the zero image.*/
+
+    // The lower the layer, the more it is guaranteed to be rendered on top of other objects.
+    // app_node4->SetLayer(-1.0f);
+    app_node3->SetLayer(-1000.0f);
 
 	// If an animation is not set for a node, then it will not display.
 	// Unset nodes default to the "ERROR" animation. Same thing occurs when an animation string is invalid.

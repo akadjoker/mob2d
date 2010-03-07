@@ -39,11 +39,13 @@ public:
     virtual ~M2DFx();
 
     void unload();
-    bool initialize(string vert, string frag);
+    bool initialize(char* vert, char* frag);// string vert, string frag)
 	void linkProgram();
 
     GLuint getUniformLocation(const string& name);
     GLuint getAttribLocation(const string& name);
+
+    void validateShader(GLuint shader);
 
     void sendUniform(const string& name, const int id);
     void sendUniform4x4(const string& name, const float* matrix, bool transpose=false);
@@ -59,10 +61,13 @@ private:
     bool compileShader(const M2DShader& shader);
     void outputShaderLog(unsigned int shaderID);
 
-    bool loadShader(string vertex_shader, string fragment_shader);
+    char* textFileRead(char* fn);
+
+    bool loadShader(char* vertex_shader, char* fragment_shader);//string vertex_shader, string fragment_shader)
 
     M2DShader m_vertexShader;
     M2DShader m_fragmentShader;
+
     unsigned int m_programID;
 
     map<string, GLuint> m_uniformMap;

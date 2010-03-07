@@ -38,9 +38,7 @@ Sprite::Sprite(string file)
 
             if(!LoadShaderProgram(root))
             {
-                Mob2DLog::Instance()->PushString("No shader program specified or the shader source is invalid.("+file+")\n");
-                Mob2DLog::Instance()->PushString("Shaders will be disabled for this sprite.("+file+")\n");
-                Mob2DLog::Instance()->PushString("Rendering in fixed function mode.("+file+")\n");
+                Mob2DLog::Instance()->PushString("No shader program specified or the shader source is invalid.\nShaders will be disabled for this sprite.("+file+")\n");
                 shader_enabled = false;
             }
 
@@ -118,27 +116,38 @@ bool Sprite::LoadAnimations(TiXmlElement* root)
 		return false;
 	}
 	return true;
-//	Mob2DLog::Instance()->PushString("Spritesheet loaded.\n");
 }
 bool Sprite::LoadShaderProgram(TiXmlElement* root)
 {
     TiXmlElement* shader_element = root->FirstChildElement("shader");
-    string vertex_shader, fragment_shader;
+    char* vertex_shader;
+    char* fragment_shader;
 
     if(shader_element)
     {
         TiXmlElement* vert_elem = shader_element->FirstChildElement("vertex");
         TiXmlElement* frag_elem = shader_element->FirstChildElement("fragment");
 
-        vertex_shader = vert_elem->Attribute("file");
-        fragment_shader = frag_elem->Attribute("file");
+        vertex_shader = strdup(vert_elem->Attribute("file"));
+        fragment_shader = strdup(frag_elem->Attribute("file"));
 
-        shader.initialize(vertex_shader, fragment_shader);
-        return true;
-        // std::cout<<"VERTEX SHADER\n\n"<<vertex_shader<<"\n\nFRAGMENT SHADER\n\n"<<fragment_shader<<"\n\n";
+        if(!shader.initialize(vertex_shader, fragment_shader))
+            return false;
+
+        else
+        {
+
+            // built in vertex attributes
+            shader.bindAttrib(0, "m2d_vertex");
+            shader.bindAttrib(1, "m2d_texcoord");
+            shader.bindAttrib(2, "m2d_blendcolor");
+
+            shader.linkProgram();
+
+            return true;
+        }
     }
-    else
-        return false;
+    else return false;
 }
 
 void Sprite::LoadAnimationFrame(TiXmlElement* frame_element, pAnimation anim)

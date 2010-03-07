@@ -63,9 +63,6 @@ class mob2d_node
     /// Current animation being rendered.
 		string animation;
 
-    /// Will be used more when shaders are implimented.
-		GLfloat blend_color[3];
-
     /// This is used to provide direct access to the Sprite resource rather than looking it up through the sprite cache.
 		pSprite m_sprite;
 
@@ -80,6 +77,8 @@ class mob2d_node
 		void SetSprite(string sprite_handle);
 		void SetBlend(float r, float g, float b);
 
+		void SetLayer(GLfloat layer);
+
 		void Rotate(float angle)                  { this->angle = angle;      }
 		void Translate(int x, int y)              { this->x = x; this->y = y; }
 		void Transform(int x, int y, float angle) { this->x = x; this->y = y; this->angle = angle; }
@@ -88,6 +87,8 @@ class mob2d_node
 		Mob2DBoundingCircle GetBoundingCircle();
 
         bool isSpriteError() { return m_sprite->error(); }
+
+        GLfloat blend_color[3];
 
 		friend class SpriteManager;
 		friend class Mob2DRenderer;

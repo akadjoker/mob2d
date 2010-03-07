@@ -31,10 +31,10 @@
 			<bottom_right x="" y="" />
 		</frame>
 	</animation>
-<!--
+
 	<shader>
 		<vertex file="resources/vertex.vert" />
 		<fragment file="resources/fragment.frag" />
 	</shader>
--->	
+	
 </spritesheet>

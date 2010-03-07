@@ -30,9 +30,11 @@ void Mob2DRenderer::Init(uint window_width, uint window_height, uint view_width,
 }
 void Mob2DRenderer::Render()
 {
+
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(camera_data[0], camera_data[0]+camera_data[2], camera_data[1]+camera_data[3], camera_data[1], -1, 1);
+
+	glOrtho(camera_data[0], camera_data[0]+camera_data[2], camera_data[1]+camera_data[3], camera_data[1], -9001, 9001);
     glViewport(0, 0, window[0], window[1]);
 
 	glMatrixMode(GL_MODELVIEW);
@@ -43,7 +45,6 @@ void Mob2DRenderer::Render()
 
 // Loop through all instances of Mob2D_node (Mob2DNode) in the sprite manager and render them out.
 // Handle the binding of textures here, but let the nodes translate and rotate themselves.
-
 	for(Mob2DNodeIter i = SpriteManager::Instance()->nodes.begin();
 		i != SpriteManager::Instance()->nodes.end(); i++)
 	{

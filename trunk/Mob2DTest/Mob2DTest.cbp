@@ -24,7 +24,7 @@
 					<Add library="GLU" />
 					<Add library="pthread" />
 					<Add library="Xxf86vm" />
-					<Add library="../libMob2D/bin/Linux/libMob2D.a" />
+					<Add library="../libMob2D/bin/Linux_Dbg/libMob2D_d.a" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -42,10 +42,9 @@
 		</Build>
 		<Compiler>
 			<Add option="-O3" />
-			<Add directory="C:/MinGW/include" />
 		</Compiler>
 		<Linker>
-			<Add library="../libMob2D/bin/Linux/libMob2D.a" />
+			<Add library="../libMob2D/bin/Linux_Dbg/libMob2D_d.a" />
 		</Linker>
 		<Unit filename="main.cpp" />
 		<Extensions>
