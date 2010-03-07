@@ -3,6 +3,7 @@
 Sprite::Sprite()
 {
 	error_flag = true;
+	shader_enabled = true;
 	name = "ERROR";
 	CreateDefaultAnimation();
 }
@@ -22,6 +23,9 @@ Sprite::Sprite(string file)
 	TiXmlHandle sheet_dec(&doc);
 
 	TiXmlElement* root;
+
+	shader_enabled = true;
+
 	if(!doc.Error() && loaded)
 	{
         root = sheet_dec.FirstChildElement("spritesheet").ToElement();
@@ -131,15 +135,12 @@ bool Sprite::LoadShaderProgram(TiXmlElement* root)
         vertex_shader = strdup(vert_elem->Attribute("file"));
         fragment_shader = strdup(frag_elem->Attribute("file"));
 
-        if(!shader.initialize(vertex_shader, fragment_shader))
-            return false;
+        if(!shader.initialize(vertex_shader, fragment_shader)) return false;
 
         else
         {
-
-            // built in vertex attributes
-            shader.bindAttrib(0, "m2d_vertex");
-            shader.bindAttrib(1, "m2d_texcoord");
+            shader.bindAttrib(0, "m2d_vertex"    );
+            shader.bindAttrib(1, "m2d_texcoord"  );
             shader.bindAttrib(2, "m2d_blendcolor");
 
             shader.linkProgram();

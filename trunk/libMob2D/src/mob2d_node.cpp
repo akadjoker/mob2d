@@ -94,6 +94,7 @@ void mob2d_node::DrawShader()
 
     glEnable(GL_DEPTH_BUFFER);
 
+    // m_sprite->shader.linkProgram();
     m_sprite->shader.bindShader();
 
     glEnableVertexAttribArray(0);
@@ -128,7 +129,7 @@ void mob2d_node::DrawShader()
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(2);
 
-//    glUseProgram(0);
+    glUseProgram(0);
 
     glDisable(GL_DEPTH_BUFFER);
 }
