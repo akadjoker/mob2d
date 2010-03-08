@@ -1,0 +1,129 @@
+\hypertarget{classMob2D}{
+\section{Mob2D Class Reference}
+\label{classMob2D}\index{Mob2D@{Mob2D}}
+}
+
+
+{\ttfamily \#include $<$Mob2D.h$>$}\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMob2D_a403eb2e55eeb9d79f570ed196cc76ef3}{
+void \hyperlink{classMob2D_a403eb2e55eeb9d79f570ed196cc76ef3}{Init} (uint window\_\-width, uint window\_\-height, uint view\_\-width, uint view\_\-height)}
+\label{classMob2D_a403eb2e55eeb9d79f570ed196cc76ef3}
+
+\begin{DoxyCompactList}\small\item\em Initalize \hyperlink{classMob2D}{Mob2D}. \item\end{DoxyCompactList}\item 
+\hypertarget{classMob2D_adf57acf401bce7c9f4d8b9719e817f3c}{
+void \hyperlink{classMob2D_adf57acf401bce7c9f4d8b9719e817f3c}{Deinit} ()}
+\label{classMob2D_adf57acf401bce7c9f4d8b9719e817f3c}
+
+\begin{DoxyCompactList}\small\item\em Deinitalize \hyperlink{classMob2D}{Mob2D}. \item\end{DoxyCompactList}\item 
+\hypertarget{classMob2D_ab149e996732a01d5375d6448dbde8c6c}{
+void \hyperlink{classMob2D_ab149e996732a01d5375d6448dbde8c6c}{MoveCamera} (int x, int y)}
+\label{classMob2D_ab149e996732a01d5375d6448dbde8c6c}
+
+\begin{DoxyCompactList}\small\item\em Moves the camera to the given position relative to its current position. \item\end{DoxyCompactList}\item 
+\hypertarget{classMob2D_a242b8591fe4a653f304852353c3a8811}{
+void \hyperlink{classMob2D_a242b8591fe4a653f304852353c3a8811}{SetViewport} (int width, int height)}
+\label{classMob2D_a242b8591fe4a653f304852353c3a8811}
+
+\begin{DoxyCompactList}\small\item\em Set the viewport of the renderer. \item\end{DoxyCompactList}\item 
+\hypertarget{classMob2D_aa353f0ee96bddabebd7ce90e12a8c7bc}{
+void \hyperlink{classMob2D_aa353f0ee96bddabebd7ce90e12a8c7bc}{SetFramerate} (uint framerate)}
+\label{classMob2D_aa353f0ee96bddabebd7ce90e12a8c7bc}
+
+\begin{DoxyCompactList}\small\item\em Set the framerate of the renderer. This is how many times per second it updates the frame data of animated sprites. \item\end{DoxyCompactList}\item 
+void \hyperlink{classMob2D_ab18c40a9be87387c4bfa3cfe336ff36e}{FinalizeFrame} ()
+\item 
+\hypertarget{classMob2D_aef216d8f68f30f8f116829c1ebba00ce}{
+void \hyperlink{classMob2D_aef216d8f68f30f8f116829c1ebba00ce}{Cleanup} ()}
+\label{classMob2D_aef216d8f68f30f8f116829c1ebba00ce}
+
+\begin{DoxyCompactList}\small\item\em Cleans up the cache of nodes that need to be deleted. \item\end{DoxyCompactList}\item 
+\hypertarget{classMob2D_ad924bf9e07335af32176c15f73aa2a8d}{
+void \hyperlink{classMob2D_ad924bf9e07335af32176c15f73aa2a8d}{AddResource} (string file)}
+\label{classMob2D_ad924bf9e07335af32176c15f73aa2a8d}
+
+\begin{DoxyCompactList}\small\item\em Adds a sprite resource. \item\end{DoxyCompactList}\item 
+\hypertarget{classMob2D_acadf6699752f40183ec283f97b0c5193}{
+void \hyperlink{classMob2D_acadf6699752f40183ec283f97b0c5193}{DeleteSprite} (string handle)}
+\label{classMob2D_acadf6699752f40183ec283f97b0c5193}
+
+\begin{DoxyCompactList}\small\item\em Deletes a sprite and flags all nodes using it as errors. \item\end{DoxyCompactList}\item 
+\hypertarget{classMob2D_a85ffff0c2e135b00da738cecef283bda}{
+void \hyperlink{classMob2D_a85ffff0c2e135b00da738cecef283bda}{ClearNodes} (string the\_\-handle)}
+\label{classMob2D_a85ffff0c2e135b00da738cecef283bda}
+
+\begin{DoxyCompactList}\small\item\em Clears all the nodes using a particular resource. \item\end{DoxyCompactList}\item 
+\hypertarget{classMob2D_a0130c40bb69d14120a7c773dd3d8edba}{
+M2DNode \hyperlink{classMob2D_a0130c40bb69d14120a7c773dd3d8edba}{AddNode} (string handle)}
+\label{classMob2D_a0130c40bb69d14120a7c773dd3d8edba}
+
+\begin{DoxyCompactList}\small\item\em Adds a node to the internal cache of nodes and returns a copy for reference. \item\end{DoxyCompactList}\item 
+\hypertarget{classMob2D_a5134a75f802895862c060c9b404d58c9}{
+void \hyperlink{classMob2D_a5134a75f802895862c060c9b404d58c9}{SetClearColor} (float r, float g, float b)}
+\label{classMob2D_a5134a75f802895862c060c9b404d58c9}
+
+\begin{DoxyCompactList}\small\item\em Sets the clear color. \item\end{DoxyCompactList}\item 
+\hyperlink{structMob2DCoord}{Mob2DCoord} \hyperlink{classMob2D_a62b6dadda85f5aee74448282d8cae423}{GetWorldCoords} (int x, int y)
+\item 
+\hypertarget{classMob2D_a8fde6f7f09518cd09435f719803928aa}{
+void {\bfseries DumpLogConsole} ()}
+\label{classMob2D_a8fde6f7f09518cd09435f719803928aa}
+
+\item 
+\hypertarget{classMob2D_acca85bbd2eb2ac9c973d61fbe46905d3}{
+void {\bfseries DumpLogFile} ()}
+\label{classMob2D_acca85bbd2eb2ac9c973d61fbe46905d3}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMob2D_ab3a4e3a2ac9a3658eda7ad383d19e4a1}{
+static \hyperlink{classMob2D}{Mob2D} $\ast$ {\bfseries API} ()}
+\label{classMob2D_ab3a4e3a2ac9a3658eda7ad383d19e4a1}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMob2D_a7b16d3c77ee8961d0e097958fca23351}{
+{\bfseries Mob2D} (\hyperlink{classMob2D}{Mob2D} const \&)}
+\label{classMob2D_a7b16d3c77ee8961d0e097958fca23351}
+
+\item 
+\hypertarget{classMob2D_ad20f2c345be31c4dbf84055e180fb022}{
+\hyperlink{classMob2D}{Mob2D} \& {\bfseries operator=} (\hyperlink{classMob2D}{Mob2D} const \&)}
+\label{classMob2D_ad20f2c345be31c4dbf84055e180fb022}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMob2D_a9f9ca36e30d1bead16a1b2987b3aea4d}{
+static \hyperlink{classMob2D}{Mob2D} $\ast$ {\bfseries m\_\-pInstance} = NULL}
+\label{classMob2D_a9f9ca36e30d1bead16a1b2987b3aea4d}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classMob2D}{Mob2D}: This is the main API class for the DAta Rendering System. It provides functions for working with the rendering engine. The Primary goal of the \hyperlink{classMob2D}{Mob2D} class is to make sure that the user does not need to call on any methods of any of the engines internal classes. This class does not call on any OpenGL functions. It does that through its internal classes. I personally would not use this class. I would use the classes themselves instead. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classMob2D_ab18c40a9be87387c4bfa3cfe336ff36e}{
+\index{Mob2D@{Mob2D}!FinalizeFrame@{FinalizeFrame}}
+\index{FinalizeFrame@{FinalizeFrame}!Mob2D@{Mob2D}}
+\subsubsection[{FinalizeFrame}]{\setlength{\rightskip}{0pt plus 5cm}void Mob2D::FinalizeFrame ()}}
+\label{classMob2D_ab18c40a9be87387c4bfa3cfe336ff36e}
+Run the rendering routine. Call on the renderer to run its rendering routine. Does not swap the buffers. \hypertarget{classMob2D_a62b6dadda85f5aee74448282d8cae423}{
+\index{Mob2D@{Mob2D}!GetWorldCoords@{GetWorldCoords}}
+\index{GetWorldCoords@{GetWorldCoords}!Mob2D@{Mob2D}}
+\subsubsection[{GetWorldCoords}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mob2DCoord} Mob2D::GetWorldCoords (int {\em x}, \/  int {\em y})}}
+\label{classMob2D_a62b6dadda85f5aee74448282d8cae423}
+Given the screen coordinates, this function will return the world coordinates useful for screen rendering and mouse checking. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+/home/orm/Projects/Mob2D/libMob2D/src/Mob2D.h\item 
+/home/orm/Projects/Mob2D/libMob2D/src/Mob2D.cpp\end{DoxyCompactItemize}
