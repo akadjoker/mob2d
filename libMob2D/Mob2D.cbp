@@ -66,8 +66,6 @@
 		<Unit filename="src/Mob2DRenderer.h" />
 		<Unit filename="src/Mob2DShader.cpp" />
 		<Unit filename="src/Mob2DShader.h" />
-		<Unit filename="src/ParticleSystem.cpp" />
-		<Unit filename="src/ParticleSystem.h" />
 		<Unit filename="src/Sprite.cpp" />
 		<Unit filename="src/Sprite.h" />
 		<Unit filename="src/SpriteManager.cpp" />
