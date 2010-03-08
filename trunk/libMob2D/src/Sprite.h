@@ -7,6 +7,8 @@
 #include "xml/tinyxml.h"
 #include "soil/SOIL.h"
 
+namespace m2d {
+
 class Sprite;
 
 typedef boost::shared_ptr<Sprite> pSprite;
@@ -17,13 +19,13 @@ The Sprite class is a structure that holds all the data being rendered. The stru
 associated classes Animation and the Frame struct lead to a very flexible overall structure that allow for pretty
 much any kind of spritesheet layout to be loaded.
 
-Also transient, if you're reading this, you and your XML abstraction idea can jump off a cliff.
+Also transient, if you're reading this, abstraction of XML caused me nothing but problems.
 */
 class Sprite
 {
 	public:
 		Sprite();
-		Sprite(string file);
+		Sprite(const string& file);
 		~Sprite();
 
 		int GetImageHeight();
@@ -34,9 +36,9 @@ class Sprite
 
 		GLuint GetImageHandle();
 
-        uint GetMaxFrames(string anim);
-		pAnimation GetAnimation(string anim);
-        Frame GetFrame(string anim, uint frame);
+        uint GetMaxFrames(const string& anim);
+		pAnimation GetAnimation(const string& anim);
+        Frame GetFrame(const string& anim, uint frame);
 
         Frame SetFrameData(int tl_x, int tl_y, int br_x, int br_y);
 
@@ -71,4 +73,6 @@ class Sprite
         friend class mob2d_node;
         friend class Mob2DRenderer;
 };
+
+} // namespace
 #endif

@@ -6,6 +6,8 @@
 #include "Sprite.h"
 #include "mob2d_node.h"
 
+namespace m2d {
+
 class SpriteManager;
 
 /**
@@ -75,4 +77,5 @@ class SpriteManager
 };
 typedef std::multimap<string, M2DNode>::iterator Mob2DNodeIter;
 
+} // namespace
 #endif

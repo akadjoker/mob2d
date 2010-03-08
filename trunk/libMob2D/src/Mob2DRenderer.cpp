@@ -1,5 +1,7 @@
 #include "Mob2DRenderer.h"
 
+namespace m2d {
+
 Mob2DRenderer*
 Mob2DRenderer::m_pInstance = NULL;
 
@@ -12,10 +14,8 @@ void Mob2DRenderer::Init(uint window_width, uint window_height, uint view_width,
 	window[0] = window_width;
 	window[1] = window_height;
 
-	if(view_width > view_height)
-        m_bc.radius = view_width;
-    else
-        m_bc.radius = view_height;
+	if(view_width > view_height) m_bc.radius = view_width;
+    else                         m_bc.radius = view_height;
 
     m_bc.x = m_bc.y = camera_data[0];
 
@@ -30,21 +30,10 @@ void Mob2DRenderer::Init(uint window_width, uint window_height, uint view_width,
 }
 void Mob2DRenderer::Render()
 {
-
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-	glOrtho(camera_data[0], camera_data[0]+camera_data[2], camera_data[1]+camera_data[3], camera_data[1], -9001, 9001);
-    glViewport(0, 0, window[0], window[1]);
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-
 	GLuint current_image = 0,
 		   previous_image = 9001;
 
-// Loop through all instances of Mob2D_node (Mob2DNode) in the sprite manager and render them out.
-// Handle the binding of textures here, but let the nodes translate and rotate themselves.
+    // Loop through all instances of Mob2D_node (Mob2DNode) in the sprite manager and render them out.
 	for(Mob2DNodeIter i = SpriteManager::Instance()->nodes.begin();
 		i != SpriteManager::Instance()->nodes.end(); i++)
 	{
@@ -53,20 +42,122 @@ void Mob2DRenderer::Render()
 		{
             current_image = (*i).second->m_sprite->GetImageHandle();
 
-            // if the texture is already bound, there's no need to rebind it. I'm taking advantage of the
-            // stl::multimap's native sorting capabilities here.
             glActiveTexture(GL_TEXTURE0);
             if(current_image != previous_image)
                 glBindTexture(GL_TEXTURE_2D, (*i).second->m_sprite->GetImageHandle());
 
-            // Take it to the node. The node is what holds the draw routine. Class Mob2D_node.
-            // It also automatically uses its internal parameters
-            (*i).second->Draw();
+            if(!(*i).second->draw_to_screen)
+            {
+                glMatrixMode(GL_PROJECTION);
+                glLoadIdentity();
+
+                glOrtho(camera_data[0], camera_data[0]+camera_data[2],
+                        camera_data[1]+camera_data[3], camera_data[1],
+                        -9001, 9001);
+                glViewport(0, 0, window[0], window[1]);
+                glMatrixMode(GL_MODELVIEW);
+                glLoadIdentity();
+            }
+            else
+            {
+                glMatrixMode(GL_PROJECTION);
+                glLoadIdentity();
+
+                glOrtho(0, window[0], 0, window[1], -9001, 9001);
+                glViewport(0, 0, window[0], window[1]);
+
+                glMatrixMode(GL_MODELVIEW);
+                glLoadIdentity();
+                // OH GOD DRAW TO SCREEN IS DRAWING UPSIDE DOWN!
+                glTranslatef(0.375f, 0.375f, 0.0f);
+                // glScalef(0.0f, -1.0f, 0.0f);
+            }
+
+            DrawNode((*i).second);
 
             previous_image = current_image;
             glBindBuffer(GL_ARRAY_BUFFER, 0);
         }
     }
+}
+void Mob2DRenderer::DrawNode(M2DNode node)
+{
+    if(!node->m_sprite->error())
+    {
+        if(!node->m_sprite->shader_enabled)
+            DrawFixedFunction(node);
+        else
+            DrawShader(node);
+    }
+}
+void Mob2DRenderer::DrawFixedFunction(M2DNode node)
+{
+    glEnable(GL_TEXTURE_2D);
+    glEnable(GL_DEPTH_BUFFER);
+
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+
+    glBindBuffer(GL_ARRAY_BUFFER, node->m_sprite->GetFrame(node->animation,node->frame).vertex_buff);
+    glVertexPointer(3, GL_FLOAT, 0, 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, node->m_sprite->GetFrame(node->animation,node->frame).texture_coords_buff);
+    glTexCoordPointer(2, GL_FLOAT, 0, 0);
+
+    glPushMatrix();
+        glTranslatef(node->x, node->y, node->layer);
+        glRotatef(node->angle, 0.0f, 0.0f, 1.0f);
+        glScalef(node->scale_x, node->scale_y, 0.0f);
+        glDrawArrays(GL_QUADS, 0, 4);
+    glPopMatrix();
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
+    glDisable(GL_TEXTURE_2D);
+    glDisable(GL_DEPTH_BUFFER);
+}
+void Mob2DRenderer::DrawShader(M2DNode node)
+{
+    // glGetFloatv(GL_MODELVIEW_PROJECTION_NV, mp_mat);
+    // m_sprite->shader.sendUniform4x4("m2d_mp_matrix", mp_mat);
+
+    glEnable(GL_DEPTH_BUFFER);
+    node->m_sprite->shader.bindShader();
+
+    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(2);
+
+    glBindBuffer(GL_ARRAY_BUFFER, node->m_sprite->GetFrame(node->animation,node->frame).vertex_buff);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, node->m_sprite->GetFrame(node->animation,node->frame).texture_coords_buff);
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, node->blend_color);
+
+    glPushMatrix();
+        glTranslatef(node->x, node->y, node->layer);
+        glRotatef(node->angle, 0.0f, 0.0f, 1.0f);
+        glScalef(node->scale_x, node->scale_y, 0.0f);
+
+        node->m_sprite->shader.sendUniform("m2d_texture0", 0);
+
+        glDrawArrays(GL_QUADS, 0, 4);
+    glPopMatrix();
+
+    glDisableVertexAttribArray(0);
+    glDisableVertexAttribArray(1);
+    glDisableVertexAttribArray(2);
+
+    glUseProgram(0);
+    glDisable(GL_DEPTH_BUFFER);
+
+    // 1 -> m2d_vertex
+    // 2 -> m2d_texcoord
+    // 3 -> m2d_blendcolor
 }
 void Mob2DRenderer::MoveCamera(int x, int y)
 {
@@ -104,3 +195,5 @@ bool Mob2DRenderer::isInView(M2DNode node)
 void Mob2DRenderer::Deinit()
 {
 }
+
+}// namespace

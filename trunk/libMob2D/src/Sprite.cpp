@@ -1,5 +1,7 @@
 #include "Sprite.h"
 
+namespace m2d {
+
 Sprite::Sprite()
 {
 	error_flag = true;
@@ -11,7 +13,7 @@ Sprite::~Sprite()
 {
     glDeleteTextures(1, &image_handle);
 }
-Sprite::Sprite(string file)
+Sprite::Sprite(const string& file)
 {
     CreateDefaultAnimation();
 	error_flag = false;
@@ -57,8 +59,10 @@ Sprite::Sprite(string file)
             Mob2DLog::Instance()->PushString("Could not load definition file for sprite.("+file+")\n");
 		error_flag = true;
 	}
-	if(!error_flag)
-        Mob2DLog::Instance()->PushString("Spritesheet successfuly loaded.("+file+")\n");
+	if(!error_flag && shader_enabled)
+        Mob2DLog::Instance()->PushString("Spritesheet successfuly loaded. Shaders enabled for this sprite.("+file+")\n");
+    else if(!error_flag && !shader_enabled)
+        Mob2DLog::Instance()->PushString("Spritesheet successfuly loaded. Rendering fixed function.("+file+")\n");
     else
         Mob2DLog::Instance()->PushString("Spritesheet loading failed somehow. Check the log for details.("+file+")\n");
 }
@@ -129,16 +133,15 @@ bool Sprite::LoadShaderProgram(TiXmlElement* root)
         vertex_shader = strdup(vert_elem->Attribute("file"));
         fragment_shader = strdup(frag_elem->Attribute("file"));
 
-        if(!shader.initialize(vertex_shader, fragment_shader)) return false;
+        if(!shader.initialize(vertex_shader, fragment_shader))
+            return false;
 
         else
         {
             shader.bindAttrib(0, "m2d_vertex"    );
             shader.bindAttrib(1, "m2d_texcoord"  );
             shader.bindAttrib(2, "m2d_blendcolor");
-
             shader.linkProgram();
-
             return true;
         }
     }
@@ -170,7 +173,7 @@ bool Sprite::LoadImageData(TiXmlElement* root)
     string file_to_load = root->Attribute("sheet_source");
 
     image_handle = SOIL_load_OGL_texture
-        (file_to_load.c_str(), SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y );
+        (file_to_load.c_str(), SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS/* | SOIL_FLAG_INVERT_Y */);
 
     if(0 == image_handle)
     {
@@ -184,47 +187,13 @@ bool Sprite::LoadImageData(TiXmlElement* root)
         return true;
     }
 }
-pAnimation Sprite::GetAnimation(string anim)
+pAnimation Sprite::GetAnimation(const string& anim)
 {
     if(animations.find(anim) != animations.end())
         return animations[anim];
     else
         return animations["ERROR"];
 }
-/*
-Frame Sprite::SetFrameData(int tl_x, int tl_y, int br_x, int br_y)
-{
-    Frame frame;
-
-    GLfloat width, height;
-	width = (GLfloat)((br_x - tl_x) / 2);
-	height = (GLfloat)((br_y - tl_y) / 2);
-
-	frame.vertex_array[0] = -width; frame.vertex_array[1] = height; frame.vertex_array[2] = 0.0f; // lower left
-	frame.vertex_array[3] = width; frame.vertex_array[4] = height; frame.vertex_array[5] = 0.0f; // lower right
-	frame.vertex_array[6] = width; frame.vertex_array[7] = -height; frame.vertex_array[8] = 0.0f; // upper right
-	frame.vertex_array[9] = -width; frame.vertex_array[10] = -height; frame.vertex_array[11] = 0.0f; // upper left
-
-	// bottom left
-	frame.texture_coords[0] = (GLfloat)((GLfloat)tl_x/(GLfloat)image_width);
-	frame.texture_coords[1] = (GLfloat)(1.0f-((GLfloat)br_y/(GLfloat)image_height));
-
-	// bottom right
-	frame.texture_coords[2] = (GLfloat)((GLfloat)br_x/(GLfloat)image_width);
-	frame.texture_coords[3] = (GLfloat)(1.0f-((GLfloat)br_y/(GLfloat)image_height));
-
-	// top right
-    frame.texture_coords[4] = (GLfloat)((GLfloat)br_x/(GLfloat)image_width);
-	frame.texture_coords[5] = (GLfloat)(1.0f-((GLfloat)tl_y/(GLfloat)image_height));
-
-	// top left
-	frame.texture_coords[6] = (GLfloat)((GLfloat)tl_x/(GLfloat)image_width);
-	frame.texture_coords[7] = (GLfloat)(1.0f-((GLfloat)tl_y/(GLfloat)image_height));
-
-    // DERRRRRRRRRRRRRRRRRRRRRRRRRRP! I NEVER RETURNED IT! A testimate to my occasional short-sightendess.
-    return frame;
-}
-*/
 void Sprite::CreateDefaultAnimation()
 {
     pAnimation anim(new Animation());
@@ -251,11 +220,11 @@ GLuint Sprite::GetImageHandle()
 {
     return image_handle;
 }
-uint Sprite::GetMaxFrames(string anim)
+uint Sprite::GetMaxFrames(const string& anim)
 {
     return GetAnimation(anim)->GetMaxFrames();
 }
-Frame Sprite::GetFrame(string anim, uint frame)
+Frame Sprite::GetFrame(const string& anim, uint frame)
 {
     return GetAnimation(anim)->GetFrame(frame);
 }
@@ -263,3 +232,5 @@ Frame Sprite::GetFrame(string anim, uint frame)
 // upper right + -
 // lower right + +
 // lower left - +
+
+} // namespace

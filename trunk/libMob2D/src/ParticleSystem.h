@@ -3,6 +3,8 @@
 
 #include "Mob2DCommon.h"
 
+namespace m2d {
+
 /**
 ParticleSystem:
 The particle system class is the class that manages the particles. It is a manager class much like SpriteManager, only it
@@ -18,5 +20,7 @@ class ParticleSystem
 	protected:
 	private:
 };
+
+} // namespace
 
 #endif // PARTICLESYSTEM_H

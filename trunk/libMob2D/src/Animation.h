@@ -2,31 +2,15 @@
 #define ANIMATION_H
 
 #include "Mob2DCommon.h"
+#include "Frame.h"
 
-struct Frame
-{
-/* // VA
-    GLfloat texture_coords[8];
-    GLfloat vertex_array[12];
-// */
+namespace m2d {
 
-// VBO
-    GLuint texture_coords_buff;
-    GLuint vertex_buff;
-// */
-};
 class Animation
 {
 	public:
 		Animation();
-		virtual ~Animation()
-		{
-		    for(std::vector<Frame>::iterator i = frames.begin(); i != frames.end(); i++)
-		    {
-		        glDeleteBuffers(GL_ARRAY_BUFFER, &(*i).texture_coords_buff);
-		        glDeleteBuffers(GL_ARRAY_BUFFER, &(*i).vertex_buff);
-		    }
-        }
+		virtual ~Animation() { }
 
         float GetBoundingCircleRadius();
         float GetMaxWidth();
@@ -36,7 +20,6 @@ class Animation
         Frame GetFrame(uint frame);
 
         Frame AddFrame(int image_width, int image_height, int tl_x, int tl_y, int br_x, int br_y, bool error=false);
-        // void AddFrame(Frame frame);
 
     protected:
 
@@ -63,4 +46,5 @@ typedef boost::shared_ptr<Animation> pAnimation;
     As an example, the bounding volume data is used by Mob2DRenderer to impliment automatic culling.
 */
 
+} // namespace
 #endif // ANIMATION_H

@@ -1,5 +1,7 @@
 #include "Animation.h"
 
+namespace m2d {
+
 Animation::Animation()
 {
     max_width = 0.0f;
@@ -29,18 +31,15 @@ Frame Animation::AddFrame(int image_width, int image_height, int tl_x, int tl_y,
 
 // VBO
 	texture_coords[0] = (GLfloat)((GLfloat)tl_x/(GLfloat)image_width); // bottom left
-	texture_coords[1] = (GLfloat)(1.0f-((GLfloat)br_y/(GLfloat)image_height));
+	texture_coords[1] = (GLfloat)(/*1.0f-*/((GLfloat)br_y/(GLfloat)image_height));
 	texture_coords[2] = (GLfloat)((GLfloat)br_x/(GLfloat)image_width); // bottom right
-	texture_coords[3] = (GLfloat)(1.0f-((GLfloat)br_y/(GLfloat)image_height));
+	texture_coords[3] = (GLfloat)(/*1.0f-*/((GLfloat)br_y/(GLfloat)image_height));
     texture_coords[4] = (GLfloat)((GLfloat)br_x/(GLfloat)image_width); // top right
-	texture_coords[5] = (GLfloat)(1.0f-((GLfloat)tl_y/(GLfloat)image_height));
+	texture_coords[5] = (GLfloat)(/*1.0f-*/((GLfloat)tl_y/(GLfloat)image_height));
 	texture_coords[6] = (GLfloat)((GLfloat)tl_x/(GLfloat)image_width); // top left
-	texture_coords[7] = (GLfloat)(1.0f-((GLfloat)tl_y/(GLfloat)image_height));
+	texture_coords[7] = (GLfloat)(/*1.0f-*/((GLfloat)tl_y/(GLfloat)image_height));
 // */
 // VBO
-	glGenBuffers(1, &frame.texture_coords_buff);
-	glGenBuffers(1, &frame.vertex_buff);
-
 	glBindBuffer(GL_ARRAY_BUFFER, frame.texture_coords_buff);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*8, texture_coords, GL_DYNAMIC_DRAW);
 
@@ -87,3 +86,5 @@ uint Animation::GetMaxFrames()
 {
     return frames.size();
 }
+
+} // namespace

@@ -5,82 +5,67 @@
 #include "Mob2DRenderer.h"
 
 /**
-Mob2DCoord:
-A coordinate pair used specifically by GetWorldCoords(int win_x, int win_y);
-*/
-struct Mob2DCoord
-{
-    GLdouble x;
-    GLdouble y;
-};
-
-/**
 Mob2D:
 This is the main API class for the DAta Rendering System. It provides functions for working with the rendering
 engine. The Primary goal of the Mob2D class is to make sure that the user does not need to call on any methods
 of any of the engines internal classes. This class does not call on any OpenGL functions. It does that through its
-internal classes. I personally would not use this class. I would use the classes themselves instead.
+internal classes.
 */
 
-class Mob2D
-{
-	public:
-		static Mob2D* API() { if(!m_pInstance) m_pInstance = new Mob2D(); return m_pInstance; }
+namespace m2d {
 
-    /// Initalize Mob2D.
-		void Init(uint window_width, uint window_height, uint view_width, uint view_height);
+#ifdef _cplusplus
+extern "C" {
+#endif
 
-    /// Deinitalize Mob2D.
-		void Deinit();
 
-	//-----FUNCTIONS THAT REFERENCE Mob2DRenderer-----//
-    /// Moves the camera to the given position relative to its current position.
-		void MoveCamera(int x, int y);
+void Init(uint, uint, uint, uint);
 
-    /// Set the viewport of the renderer.
-		void SetViewport(int width, int height);
+/// Deinitalize Mob2D.
+void Deinit();
 
-    /// Set the framerate of the renderer. This is how many times per second it updates the frame data of animated sprites.
-		void SetFramerate(uint framerate);
+//-----FUNCTIONS THAT REFERENCE Mob2DRenderer-----//
+/// Moves the camera to the given position relative to its current position.
+void MoveCamera(int, int);
 
-    /// Run the rendering routine. Call on the renderer to run its rendering routine.
-    /// Does not swap the buffers.
-		void FinalizeFrame();
+/// Set the viewport of the renderer.
+void SetViewport(int, int);
 
-	//-----FUNCTIONS THAT REFERENCE SpriteManager-----//
-    /// Cleans up the cache of nodes that need to be deleted.
-		void Cleanup();
+/// Run the rendering routine. Call on the renderer to run its rendering routine. Does not swap the buffers.
+void FinalizeFrame();
 
-    /// Adds a sprite resource.
-		void AddResource(string file);
+//-----FUNCTIONS THAT REFERENCE SpriteManager-----//
+/// Cleans up the cache of nodes that need to be deleted.
+void Cleanup();
 
-    /// Deletes a sprite and flags all nodes using it as errors.
-        void DeleteSprite(string handle);
+/// Adds a sprite resource.
+void AddResource(string);
 
-    /// Clears all the nodes using a particular resource.
-		void ClearNodes(string the_handle);
+/// Deletes a sprite and flags all nodes using it as errors.
+void DeleteSprite(string);
 
-    /// Adds a node to the internal cache of nodes and returns a copy for reference.
-		M2DNode AddNode(string handle);
+/// Clears all the nodes using a particular resource.
+void ClearNodes(string);
 
-    //-----UTILITY FUNCTIONS-----//
-    /// Sets the clear color.
-        void SetClearColor(float r, float g, float b);
+/// Adds a node to the internal cache of nodes and returns a copy for reference.
+M2DNode AddNode(string);
 
-    /// Given the screen coordinates, this function will return the world coordinates useful for screen
-    /// rendering and mouse checking no matter what the viewport zoom is like.
-        Mob2DCoord GetWorldCoords(int x, int y);
+//-----UTILITY FUNCTIONS-----//
+/// Sets the clear color.
+void SetClearColor(float, float, float);
 
-    //-----LOG FUNCTIONS-----//
-		void DumpLogConsole();
-        void DumpLogFile();
+// Given the screen coordinates, this function will return the world coordinates useful for screen
+// rendering and mouse checking no matter what the viewport zoom is like.
+// Mob2DCoord GetWorldCoords(int x, int y);
 
-	protected:
-		Mob2D(){};
-		Mob2D(Mob2D const&){};
-		Mob2D& operator=(Mob2D const&){};  // assignment operator is private
-		~Mob2D(){};
+//-----LOG FUNCTIONS-----//
+void DumpLogConsole();
+void DumpLogFile();
 
-		static Mob2D* m_pInstance;
-};
+
+#ifdef _cplusplus
+}
+#endif
+
+} // m2d namespace
 #endif // Mob2D_H

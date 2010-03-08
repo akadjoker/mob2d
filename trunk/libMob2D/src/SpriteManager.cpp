@@ -1,5 +1,7 @@
 #include "SpriteManager.h"
 
+namespace m2d {
+
 SpriteManager*
 SpriteManager::m_pInstance = NULL;
 
@@ -105,3 +107,5 @@ void SpriteManager::Cleanup()
     // So easy a caveman can do it.
     nodes.erase("CLEANUP");
 }
+
+} // namespace

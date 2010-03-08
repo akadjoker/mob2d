@@ -5,6 +5,7 @@
 #include "Mob2DCommon.h"
 #include "SpriteManager.h"
 
+namespace m2d {
 /**
 Mob2DRenderer:
 Uses OpenGL to render the scene. Its rendering process is described in the comments of VARender.
@@ -33,6 +34,12 @@ class Mob2DRenderer
 		~Mob2DRenderer(){};
 		static Mob2DRenderer* m_pInstance;
 
+    /// Looks at the node then determines how best to draw it, delegating the responsibility to other functions.
+        void DrawNode(M2DNode node);
+
+		void DrawFixedFunction(M2DNode node);
+		void DrawShader(M2DNode node);
+
     /// Camera position and viewport width/height. By default, the last two values are the same as the window. [x, y, width, height]
 		int camera_data[4];
     /// Width and height of the actual window opened by the operating system.
@@ -46,7 +53,11 @@ class Mob2DRenderer
 
 		GLuint debug_color;
 
+		GLfloat modelview_projection_matrix[16];
+
 		friend class Mob2D;
 		friend class mob2d_node;
 };
+
+} // namespace
 #endif // Mob2DRENDERER_H

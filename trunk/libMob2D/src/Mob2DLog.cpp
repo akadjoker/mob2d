@@ -1,14 +1,16 @@
 #include "Mob2DCommon.h"
 
+namespace m2d {
+
 Mob2DLog*
 Mob2DLog::m_pInstance = NULL;
 
 Mob2DLog::~Mob2DLog()
 {
 }
-void Mob2DLog::PushString(string _string)
+void Mob2DLog::PushString(const string& error_string)
 {
-	error_list.push_back(_string);
+	error_list.push_back(error_string);
 }
 void Mob2DLog::ConsoleDump()
 {
@@ -33,3 +35,5 @@ void Mob2DLog::FileDump()
 		{ myfile<<(*i); }
 	myfile.close();
 }
+
+} // namespace

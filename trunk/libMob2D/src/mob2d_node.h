@@ -4,6 +4,8 @@
 #include "Mob2DCommon.h"
 #include "Sprite.h"
 
+namespace m2d {
+
 class mob2d_node;
 typedef boost::shared_ptr<mob2d_node> M2DNode;
 
@@ -33,15 +35,6 @@ class mob2d_node
     // These should never be called outside the system. //
 
 		void ReassignToSprite(pSprite sprite);
-
-    /// Called by the renderer to draw the sprite.
-		void Draw();
-
-		void DrawFixedFunction();
-		void DrawShader();
-
-    /// Draws the sprite to the screen coordinates.
-		void DrawToScreen();
 
     /// Int denoting what frame it is on.
 		uint frame;
@@ -73,17 +66,21 @@ class mob2d_node
     /// Methods to set data for drawing.
 		void StepFrame();
 		void SetFrame(uint frame);
-		void SetAnimation(string anim);
-		void SetSprite(string sprite_handle);
+		void SetAnimation(const string& anim);
+		void SetSprite(const string& sprite_handle);
 		void SetBlend(float r, float g, float b);
+        void SetLayer(GLfloat layer);
 
-		void SetLayer(GLfloat layer);
+    /// Set the specified flag either on or off, depending on what it is currently set to.
+		void SetFlag(M2Denum val);
+    /// Returns the specified flag's value.
+		bool GetFlag(M2Denum val);
 
 		void Rotate(float angle)                  { this->angle = angle;      }
 		void Translate(int x, int y)              { this->x = x; this->y = y; }
 		void Transform(int x, int y, float angle) { this->x = x; this->y = y; this->angle = angle; }
 
-		Mob2Daabb GetAABB();
+		Mob2Daabb           GetAABB();
 		Mob2DBoundingCircle GetBoundingCircle();
 
         bool isSpriteError() { return m_sprite->error(); }
@@ -93,4 +90,6 @@ class mob2d_node
 		friend class SpriteManager;
 		friend class Mob2DRenderer;
 };
+
+} // namespace
 #endif

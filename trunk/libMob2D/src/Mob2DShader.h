@@ -27,6 +27,8 @@ using std::string;
 using std::map;
 using std::vector;
 
+namespace m2d {
+
 class M2DFx
 {
 public:
@@ -74,4 +76,5 @@ private:
     map<string, GLuint> m_attribMap;
 };
 
+} // anmespace
 #endif // GLSL_SHADER_H_INCLUDED

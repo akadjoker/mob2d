@@ -13,6 +13,8 @@
     #include <windows.h>
 #endif
 
+using namespace m2d;
+
 #ifdef LINUX
 uint32_t GetTickCount(void)
 {
@@ -50,33 +52,29 @@ int main()
     glfwSetWindowTitle("Mob2D Test Application");
 
     //-----INITALIZE Mob2D AND LOAD A RESOURCE-----//
-	Mob2D::API()->Init(800, 600, 800, 600); // 800x600 window
+	Init(800, 600, 700, 500); // 800x600 window
 
 	// Add a sprite markup to the internal cache.
-	Mob2D::API()->AddResource("resources/image_def.xml");
-    Mob2D::API()->AddResource("resources/zero_def.xml");
+	AddResource("resources/image_def.xml");
+    AddResource("resources/zero_def.xml");
 
-	Mob2D::API()->SetClearColor(0.0f, 0.0f, 0.0f);
+	SetClearColor(0.0f, 0.0f, 0.0f);
 
     // Create app nodes and assign it to the image resources stored by the system.
     // This is just a quick and dirty demonstration. I need to make a nicer one.
-	M2DNode app_node  = Mob2D::API()->AddNode("Test_Image");
-	M2DNode app_node1 = Mob2D::API()->AddNode("Zero");
-	M2DNode app_node2 = Mob2D::API()->AddNode("Test_Image");
-	M2DNode app_node3 = Mob2D::API()->AddNode("Zero");
-    M2DNode app_node4 = Mob2D::API()->AddNode("Test_Image");
+	M2DNode app_node  = AddNode("Test_Image");
+	M2DNode app_node1 = AddNode("Zero");
+	M2DNode app_node2 = AddNode("Test_Image");
+	M2DNode app_node3 = AddNode("Zero");
+    M2DNode app_node4 = AddNode("Test_Image");
 
     // The lower the layer number, the more things it will be drawn over.
     // The value can be anywhere between -9001 and 9001
     // Nodes default to layer 0.0f
     //app_node3->SetLayer(-20.0f);
 
-    // Example of using the error flag through the node.
-    if(!app_node->isSpriteError()) { std::cout<<"No error.\n"; }
-	else { std::cout<<"Error.\n"; }
-
     // Move the sprite relative to the top left.
-	app_node->Translate(100, 300); // left side
+	app_node ->Translate(100, 300); // left side
     app_node1->Translate(400, 100); // top side
     app_node2->Translate(700, 300); // right side
     app_node3->Translate(400, 500); // bottom side
@@ -95,7 +93,9 @@ int main()
 	app_node4->SetAnimation("letters");
 
     // Dump the log to the console so we can see if anything went wrong.
-	Mob2D::API()->DumpLogConsole();
+	DumpLogConsole();
+
+	app_node4->SetFlag(M2D_DRAWTOSCREEN);
 
     while(running)
     {
@@ -122,7 +122,7 @@ int main()
         }
 
         //-----INSERT Mob2D RENDERING CODE HERE-----//
-		Mob2D::API()->FinalizeFrame(/*Interpolation will be implimented soon!*/);
+		FinalizeFrame(/*Interpolation will be implimented soon!*/);
 
         glfwSwapBuffers();
 
@@ -130,7 +130,7 @@ int main()
         running = (!glfwGetKey(GLFW_KEY_ESC) && glfwGetWindowParam(GLFW_OPENED));
     }
     // Mob2D::API()->DumpLogFile();
-    Mob2D::API()->Deinit();
+    Deinit();
 
     glfwTerminate();
 

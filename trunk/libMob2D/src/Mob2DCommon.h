@@ -42,6 +42,8 @@ Afternet @ #gamedev
 #include <GL/gl.h>
 #include <GL/glu.h>
 
+namespace m2d {
+
 typedef std::string string;
 
 struct strsrt
@@ -50,8 +52,38 @@ struct strsrt
     { return strcmp(str1.c_str(), str2.c_str()) < 0; }
 };
 
-#ifndef Mob2DLOG_H
-#define Mob2DLOG_H
+
+/**
+Mob2DCoord:
+A coordinate pair used specifically by GetWorldCoords(int win_x, int win_y);
+*/
+struct Mob2DCoord
+{
+    GLdouble x;
+    GLdouble y;
+};
+
+
+#ifdef _cplusplus
+extern "C" {
+#endif
+
+// Used for draw to screen functionality among other things.
+Mob2DCoord GetWorldCoords(int, int);
+
+#ifdef _cplusplus
+}
+#endif
+
+// General enum for engine.
+enum M2Denum
+{
+    M2D_DRAWTOSCREEN,
+    M2D_LOOP,
+    M2D_DRAW
+};
+
+
 /**
 Mob2DLog:
 This class stores a list of std::strings that are then used by a separate console class. The two classes work together
@@ -63,7 +95,7 @@ class Mob2DLog
 		static Mob2DLog* Instance() { if(!m_pInstance) m_pInstance = new Mob2DLog; return m_pInstance; }
 
     /// Pushes a message string into the internal list of messages.
-		void PushString(string _string);
+		void PushString(const string& error_string);
 
     /// Dumps the message list into the console.
 		void ConsoleDump();
@@ -79,5 +111,6 @@ class Mob2DLog
 
 		std::list<string> error_list;
 };
-#endif // ENGINELOG_H
+
+} // namespace
 #endif // Mob2DCOMMON_H
