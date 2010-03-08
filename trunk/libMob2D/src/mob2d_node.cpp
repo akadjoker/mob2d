@@ -17,7 +17,7 @@ mob2d_node::mob2d_node(pSprite sprite)
     draw_to_screen = false;
     loop = draw = true;
 
-	SetBlend(111, 111, 111);
+	SetBlend(255, 255, 255);
 }
 void mob2d_node::SetAnimation(string anim)
 {
@@ -42,20 +42,6 @@ void mob2d_node::Draw()
 }
 void mob2d_node::DrawFixedFunction()
 {
-/*
-    GLfloat width = m_sprite->GetAnimation(animation)->max_width,
-            height = m_sprite->GetAnimation(animation)->max_height;
-
-    GLfloat varray[12];
-
-    varray[0] = -width; varray[1]  = height;  varray[2]  = 0.0f; // lower left
-    varray[3] = width;  varray[4]  = height;  varray[5]  = 0.0f; // lower right
-    varray[6] = width;  varray[7]  = -height; varray[8]  = 0.0f; // upper right
-    varray[9] = -width; varray[10] = -height; varray[11] = 0.0f; // upper left
-// */
-// VBO
-    // glUseProgram(0); // required
-
     glEnable(GL_TEXTURE_2D);
     glEnable(GL_DEPTH_BUFFER);
 
@@ -93,8 +79,6 @@ void mob2d_node::DrawShader()
     //GLfloat mp_mat[16];
 
     glEnable(GL_DEPTH_BUFFER);
-
-    // m_sprite->shader.linkProgram();
     m_sprite->shader.bindShader();
 
     glEnableVertexAttribArray(0);
@@ -119,7 +103,7 @@ void mob2d_node::DrawShader()
         // glGetFloatv(GL_MODELVIEW_PROJECTION_NV, mp_mat);
         // m_sprite->shader.sendUniform4x4("m2d_mp_matrix", mp_mat);
 
-        m_sprite->shader.sendUniform("texture0", 0);
+        m_sprite->shader.sendUniform("m2d_texture0", 0);
 
         glDrawArrays(GL_QUADS, 0, 4);
 
@@ -166,9 +150,9 @@ void mob2d_node::SetBlend(float r, float g, float b)
 	if(m_g > 1.0f) m_g = 1.0f;
 	if(m_b > 1.0f) m_b = 1.0f;
 
-	blend_color[0] = m_r;
-	blend_color[1] = m_g;
-	blend_color[2] = m_b;
+	blend_color[0] = blend_color[3] = blend_color[6] = blend_color[9]  = m_r;
+	blend_color[1] = blend_color[4] = blend_color[7] = blend_color[10] = m_g;
+	blend_color[2] = blend_color[5] = blend_color[8] = blend_color[11] = m_b;
 }
 void mob2d_node::StepFrame()
 {
@@ -218,6 +202,21 @@ void mob2d_node::SetLayer(GLfloat layer)
 {
     this->layer = layer;
 }
+
+/*
+    GLfloat width = m_sprite->GetAnimation(animation)->max_width,
+            height = m_sprite->GetAnimation(animation)->max_height;
+
+    GLfloat varray[12];
+
+    varray[0] = -width; varray[1]  = height;  varray[2]  = 0.0f; // lower left
+    varray[3] = width;  varray[4]  = height;  varray[5]  = 0.0f; // lower right
+    varray[6] = width;  varray[7]  = -height; varray[8]  = 0.0f; // upper right
+    varray[9] = -width; varray[10] = -height; varray[11] = 0.0f; // upper left
+// */
+// VBO
+    // glUseProgram(0); // required
+
 // DONE WITH THE TEXTURE_DRAWING
 
 /*

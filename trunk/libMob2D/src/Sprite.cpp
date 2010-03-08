@@ -14,18 +14,12 @@ Sprite::~Sprite()
 Sprite::Sprite(string file)
 {
     CreateDefaultAnimation();
-
 	error_flag = false;
-
 	TiXmlDocument doc(file);
 	bool loaded = doc.LoadFile();
-
 	TiXmlHandle sheet_dec(&doc);
-
 	TiXmlElement* root;
-
 	shader_enabled = true;
-
 	if(!doc.Error() && loaded)
 	{
         root = sheet_dec.FirstChildElement("spritesheet").ToElement();

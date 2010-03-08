@@ -88,7 +88,7 @@ class mob2d_node
 
         bool isSpriteError() { return m_sprite->error(); }
 
-        GLfloat blend_color[3];
+        GLfloat blend_color[12];
 
 		friend class SpriteManager;
 		friend class Mob2DRenderer;

@@ -60,8 +60,6 @@ class Sprite
         // boost::unordered_map<string, pAnimation> animations;
         std::map<string, pAnimation> animations;
 
-        //GLfloat alpha_color[3];
-
         void CreateDefaultAnimation();
 
         bool LoadImageProperties(TiXmlElement* root);
