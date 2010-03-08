@@ -1,0 +1,54 @@
+#include "../DARS.h"
+#include <GL/glfw.h>
+
+int main()
+{
+    int     _width, _height;
+    int     frame = 0;
+    bool    running = true;
+
+    glfwInit();
+
+    if( !glfwOpenWindow( 800, 600, 0, 0, 0, 0, 0, 0, GLFW_WINDOW ) )
+    {
+        glfwTerminate();
+        return 0;
+    }
+    glfwSetWindowTitle("DARS Test Application");
+
+    //-----INITALIZE DARS AND LOAD A RESOURCE-----//
+	DARS::Engine()->Init((DAuint)800, (DAuint)600, (DAuint) 30);
+	DARS::Engine()->AddResource("C:\\Users\\orm\\Desktop\\ProjectData2D\\DARS\\DARSTest\\bin\\Debug\\define.xml");
+	DARS::Engine()->DumpLogConsole();
+	// TODO Now that loading functionality is done and tested, the rendering functionality needs to be finished.
+	DARSNode app_node = DARS::Engine()->AddNode("Test_Image");
+
+	if(!app_node->m_sprite->error_flag) { std::cout<<"No error."; }
+	else { std::cout<<"error"; }
+
+//	app_node->UseAnimation(0); // render a number
+
+	app_node->Transform(300, 300);
+	app_node->animate = false;
+
+    while(running)
+    {
+        frame++;
+
+        glfwGetWindowSize( &_width, &_height );
+
+        _height = _height > 0 ? _height : 1;
+
+		//-----INSERT DARS RENDERING CODE HERE-----//
+
+		DARS::Engine()->FinalizeFrame();
+
+        glfwSwapBuffers();
+
+        // exit if ESC was pressed or window was closed
+        running = !glfwGetKey(GLFW_KEY_ESC) && glfwGetWindowParam( GLFW_OPENED);
+    }
+    glfwTerminate();
+
+    return 0;
+}
