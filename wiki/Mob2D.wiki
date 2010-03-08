@@ -82,6 +82,14 @@ Now that we have our node and we have set the animation, we are ready to enter o
     }
 }}}
 
+When we are done, we simply call one function and everything will be cleaned up for you.
+
+{{{
+// Goodbye
+Mob2D::API()->Disable();
+}}}
+All resources will be cleaned up for you!
+
 Mob2D was designed to be lightweight and simple to use. With this, you can spend less time worrying about OpenGL and more time creating great games.
 
 =More Advanced Concepts=
