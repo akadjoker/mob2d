@@ -86,7 +86,7 @@ When we are done, we simply call one function and everything will be cleaned up 
 
 {{{
 // Goodbye
-Mob2D::API()->Disable();
+Mob2D::API()->Deinit();
 }}}
 All resources will be cleaned up for you!
 
