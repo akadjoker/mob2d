@@ -3,7 +3,7 @@
 
 #include "Mob2DCommon.h"
 
-namespace m2d {
+namespace Mob2D {
 
 /**
 ParticleSystem:

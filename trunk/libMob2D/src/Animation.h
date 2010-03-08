@@ -4,7 +4,7 @@
 #include "Mob2DCommon.h"
 #include "Frame.h"
 
-namespace m2d {
+namespace Mob2D {
 
 class Animation
 {

@@ -1,6 +1,6 @@
 #include "SpriteManager.h"
 
-namespace m2d {
+namespace Mob2D {
 
 SpriteManager*
 SpriteManager::m_pInstance = NULL;

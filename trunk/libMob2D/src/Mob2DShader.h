@@ -27,7 +27,7 @@ using std::string;
 using std::map;
 using std::vector;
 
-namespace m2d {
+namespace Mob2D {
 
 class M2DFx
 {

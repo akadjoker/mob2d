@@ -4,7 +4,7 @@
 #include "Mob2DRenderer.h"
 #include "Mob2D.h"
 
-namespace m2d {
+namespace Mob2D {
 
 mob2d_node::mob2d_node(pSprite sprite)
 {

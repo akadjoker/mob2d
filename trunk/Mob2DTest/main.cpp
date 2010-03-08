@@ -52,21 +52,21 @@ int main()
     glfwSetWindowTitle("Mob2D Test Application");
 
     //-----INITALIZE Mob2D AND LOAD A RESOURCE-----//
-	Init(800, 600, 700, 500); // 800x600 window
+	m2dInit(800, 600, 700, 500); // 800x600 window
 
 	// Add a sprite markup to the internal cache.
-	AddResource("resources/image_def.xml");
-    AddResource("resources/zero_def.xml");
+	m2dAddResource("resources/image_def.xml");
+    m2dAddResource("resources/zero_def.xml");
 
-	SetClearColor(0.0f, 0.0f, 0.0f);
+	m2dSetClearColor(0.0f, 0.0f, 0.0f);
 
     // Create app nodes and assign it to the image resources stored by the system.
     // This is just a quick and dirty demonstration. I need to make a nicer one.
-	M2DNode app_node  = AddNode("Test_Image");
-	M2DNode app_node1 = AddNode("Zero");
-	M2DNode app_node2 = AddNode("Test_Image");
-	M2DNode app_node3 = AddNode("Zero");
-    M2DNode app_node4 = AddNode("Test_Image");
+	M2DNode app_node  = m2dAddNode("Test_Image");
+	M2DNode app_node1 = m2dAddNode("Zero");
+	M2DNode app_node2 = m2dAddNode("Test_Image");
+	M2DNode app_node3 = m2dAddNode("Zero");
+    M2DNode app_node4 = m2dAddNode("Test_Image");
 
     // The lower the layer number, the more things it will be drawn over.
     // The value can be anywhere between -9001 and 9001
@@ -93,7 +93,7 @@ int main()
 	app_node4->SetAnimation("letters");
 
     // Dump the log to the console so we can see if anything went wrong.
-	DumpLogConsole();
+	m2dDumpLogConsole();
 
 	app_node4->SetFlag(M2D_DRAWTOSCREEN);
 
@@ -122,7 +122,7 @@ int main()
         }
 
         //-----INSERT Mob2D RENDERING CODE HERE-----//
-		FinalizeFrame(/*Interpolation will be implimented soon!*/);
+		m2dFinalizeFrame(/*Interpolation will be implimented soon!*/);
 
         glfwSwapBuffers();
 
@@ -130,7 +130,7 @@ int main()
         running = (!glfwGetKey(GLFW_KEY_ESC) && glfwGetWindowParam(GLFW_OPENED));
     }
     // Mob2D::API()->DumpLogFile();
-    Deinit();
+    m2dDeinit();
 
     glfwTerminate();
 

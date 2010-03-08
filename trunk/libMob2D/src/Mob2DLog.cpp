@@ -1,6 +1,6 @@
 #include "Mob2DCommon.h"
 
-namespace m2d {
+namespace Mob2D {
 
 Mob2DLog*
 Mob2DLog::m_pInstance = NULL;

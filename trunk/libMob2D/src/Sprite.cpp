@@ -1,6 +1,6 @@
 #include "Sprite.h"
 
-namespace m2d {
+namespace Mob2D {
 
 Sprite::Sprite()
 {

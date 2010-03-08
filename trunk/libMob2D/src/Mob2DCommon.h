@@ -42,7 +42,7 @@ Afternet @ #gamedev
 #include <GL/gl.h>
 #include <GL/glu.h>
 
-namespace m2d {
+namespace Mob2D {
 
 typedef std::string string;
 

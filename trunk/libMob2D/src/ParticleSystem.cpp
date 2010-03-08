@@ -1,5 +1,5 @@
 #include "ParticleSystem.h"
-namespace m2d {
+namespace Mob2D {
 ParticleSystem::ParticleSystem()
 {
 }

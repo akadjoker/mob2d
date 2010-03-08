@@ -7,7 +7,7 @@
 #include "xml/tinyxml.h"
 #include "soil/SOIL.h"
 
-namespace m2d {
+namespace Mob2D {
 
 class Sprite;
 

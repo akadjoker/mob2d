@@ -1,6 +1,6 @@
 #include "Animation.h"
 
-namespace m2d {
+namespace Mob2D {
 
 Animation::Animation()
 {

@@ -6,7 +6,7 @@
 #include "Sprite.h"
 #include "mob2d_node.h"
 
-namespace m2d {
+namespace Mob2D {
 
 class SpriteManager;
 

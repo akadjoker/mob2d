@@ -4,7 +4,7 @@
 #include "Mob2DCommon.h"
 #include "Sprite.h"
 
-namespace m2d {
+namespace Mob2D {
 
 class mob2d_node;
 typedef boost::shared_ptr<mob2d_node> M2DNode;
