@@ -1,6 +1,6 @@
 #include "Mob2DRenderer.h"
 
-namespace Mob2D {
+namespace Mob2D    {
 
 Mob2DRenderer*
 Mob2DRenderer::m_pInstance = NULL;
