@@ -14,14 +14,14 @@ Mob2D was designed to provide a minimal footprint. As a result, it relies on a s
 Once we have a window with an OpenGL context, we need to enable the Mob2D API class, called Mob2D. We do that with one simple function call:
 
 {{{
-Mob2D::API()->Init();
+m2dInit();
 }}}
 
 See? That wasn't so hard. The engine automatically sets up it's default "error" resources and everything is ready for you. Now, let's get some resources loaded!
 
 {{{
 // This is taken straight out of the "main" in the example application!
-Mob2D::API()->AddResource("resources/image_def.xml");
+m2dAddResource("resources/image_def.xml");
 }}}
 
 In Mob2D, the only resources you need to concern yourself with are the sprite definition files that provide all the data the engine needs. I will go over sprite definitions in another tutorial, or you can look at the ones in the example application found in the SVN trunk.
@@ -30,10 +30,10 @@ When you add a resource, the engine automagically loads the spritesheet image an
 
 {{{
 // We always want to store a copy of the node for our own use. Otherwise we won't be able to do anything with it!
-M2DNode app_node = Mob2D::API()->AddNode("Test_Image");
+M2DNode app_node = m2dAddNode("Test_Image");
 }}}
 
-IT'S SO SIMPLE I CAN HARDLY STAND IT! That is literally all there is to it! The string we passed to AddNode() was the name of the sprite we want the node to work with. This string was defined in image_def.xml. Take a look at it for more information. Again, I will be providing a tutorial on more advanced resource management later on.
+IT'S SO SIMPLE I CAN HARDLY STAND IT! That is literally all there is to it! The string we passed to m2dAddNode() was the name of the sprite we want the node to work with. This string was defined in image_def.xml. Take a look at it for more information. Again, I will be providing a tutorial on more advanced resource management later on.
 
 But wait! We have a problem! When we add a node, the node will not be able to render anything right off the bat. When we add a node, the node automatically sets itself to a blank animation. This is called the nodes "default state", or the state that prevents it from pointing to any null values that could potentially bring the whole engine down. So lets set the animation! How easy is that? Here, I'll show you.
 
@@ -73,7 +73,7 @@ Now that we have our node and we have set the animation, we are ready to enter o
 
         //-----INSERT Mob2D RENDERING CODE HERE-----//
                 // The magic function! This function must be called EVERY FRAME otherwise nothing will be drawn. This function renders all the active nodes.
-		Mob2D::API()->FinalizeFrame(/*Interpolation will be implimented soon!*/);
+		m2dFinalizeFrame(/*Interpolation will be implimented soon!*/);
 
         glfwSwapBuffers();
 
@@ -86,7 +86,7 @@ When we are done, we simply call one function and everything will be cleaned up 
 
 {{{
 // Goodbye
-Mob2D::API()->Deinit();
+m2dDeinit();
 }}}
 All resources will be cleaned up for you!
 
