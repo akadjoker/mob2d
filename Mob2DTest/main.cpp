@@ -13,7 +13,7 @@
     #include <windows.h>
 #endif
 
-using namespace m2d;
+using namespace Mob2D;
 
 #ifdef LINUX
 uint32_t GetTickCount(void)
