@@ -5,7 +5,7 @@
 #include "Mob2DCommon.h"
 #include "SpriteManager.h"
 
-namespace Mob2D  {
+namespace Mob2D {
 /**
 Mob2DRenderer:
 Uses OpenGL to render the scene. Its rendering process is described in the comments of VARender.
