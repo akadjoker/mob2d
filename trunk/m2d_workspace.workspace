@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="M2D_Workspace">
+		<Project filename="libMob2D/Mob2D.cbp" />
+		<Project filename="Mob2DTest/Mob2DTest.cbp" active="1" />
+	</Workspace>
+</CodeBlocks_workspace_file>
