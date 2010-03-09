@@ -1,8 +1,8 @@
 #ifndef Mob2DRENDERER_H
 #define Mob2DRENDERER_H
 
-#include "Mob2DShader.h" // Includes Sprite.h and Mob2D_node.h
 #include "Mob2DCommon.h"
+#include "ShaderManager.h"
 #include "SpriteManager.h"
 
 namespace Mob2D {

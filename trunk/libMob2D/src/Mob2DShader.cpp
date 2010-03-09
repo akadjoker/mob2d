@@ -4,6 +4,7 @@ namespace Mob2D {
 
 M2DFx::M2DFx()
 {
+    valid = false;
 }
 
 M2DFx::~M2DFx()
@@ -31,7 +32,8 @@ bool M2DFx::initialize(char* vert, char* frag)// string vert, string frag)
     if (m_vertexShader.source.empty() || m_fragmentShader.source.empty())
     {
         std::cerr<<"Empty shader string.\n";
-        return false;
+        valid = false;
+        return valid;
     }
 
     const GLchar* tmp = static_cast<const GLchar*>(m_vertexShader.source.c_str());
@@ -47,13 +49,17 @@ bool M2DFx::initialize(char* vert, char* frag)// string vert, string frag)
         glGetProgramiv(m_programID, GL_VALIDATE_STATUS, &status);
 
         std::cerr << "Could not compile the shaders, they are invalid.\n";
-        return false;
+        valid = false;
+        return valid;
     }
     glAttachShader(m_programID, m_vertexShader.id);
     glAttachShader(m_programID, m_fragmentShader.id);
 
     glLinkProgram(m_programID);
-    return true;
+
+    valid = true;
+
+    return valid;
 }
 
 bool M2DFx::loadShader(char* vertex_shader, char* fragment_shader)//string vertex_shader, string fragment_shader)

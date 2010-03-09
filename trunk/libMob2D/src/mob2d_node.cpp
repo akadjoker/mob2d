@@ -14,7 +14,7 @@ mob2d_node::mob2d_node(pSprite sprite)
     scale_x = scale_y = 1.0f;
     layer = 0.0f;
 
-    animation = "ERROR";
+    animation = shader = "ERROR";
 
     draw_to_screen = false;
     loop = draw = true;
@@ -120,6 +120,19 @@ bool mob2d_node::GetFlag(M2Denum val)
             return draw;
     }
 }
+void mob2d_node::SetShader(const string& shader)
+{
+    this->shader = shader;
+}
+void mob2d_node::EnableShader()
+{
+    shader_enabled = true;
+}
+void mob2d_node::DisableShader()
+{
+    shader_enabled = false;
+}
+
 
 } // namespace
 

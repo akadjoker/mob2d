@@ -80,7 +80,8 @@ enum M2Denum
 {
     M2D_DRAWTOSCREEN,
     M2D_LOOP,
-    M2D_DRAW
+    M2D_DRAW,
+    M2D_SHADER
 };
 
 

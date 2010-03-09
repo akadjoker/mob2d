@@ -5,7 +5,6 @@ namespace Mob2D {
 Sprite::Sprite()
 {
 	error_flag = true;
-	shader_enabled = true;
 	name = "ERROR";
 	CreateDefaultAnimation();
 }
@@ -21,7 +20,6 @@ Sprite::Sprite(const string& file)
 	bool loaded = doc.LoadFile();
 	TiXmlHandle sheet_dec(&doc);
 	TiXmlElement* root;
-	shader_enabled = true;
 	if(!doc.Error() && loaded)
 	{
         root = sheet_dec.FirstChildElement("spritesheet").ToElement();
@@ -36,11 +34,13 @@ Sprite::Sprite(const string& file)
             if(!LoadAnimations(root))
                 Mob2DLog::Instance()->PushString("Animations could not be loaded. Check your frame declarations!("+file+")\n");
 
+            /*
             if(!LoadShaderProgram(root))
             {
                 Mob2DLog::Instance()->PushString("No shader program specified or the shader source is invalid.\nShaders will be disabled for this sprite.("+file+")\n");
                 shader_enabled = false;
             }
+            */
 
             if(!LoadImageData(root))
                 Mob2DLog::Instance()->PushString("Image data could not be loaded. Is the sheet_source attribute in <spritesheet> valid?("+file+")\n");
@@ -59,10 +59,8 @@ Sprite::Sprite(const string& file)
             Mob2DLog::Instance()->PushString("Could not load definition file for sprite.("+file+")\n");
 		error_flag = true;
 	}
-	if(!error_flag && shader_enabled)
-        Mob2DLog::Instance()->PushString("Spritesheet successfuly loaded. Shaders enabled for this sprite.("+file+")\n");
-    else if(!error_flag && !shader_enabled)
-        Mob2DLog::Instance()->PushString("Spritesheet successfuly loaded. Rendering fixed function.("+file+")\n");
+	if(!error_flag)
+        Mob2DLog::Instance()->PushString("Spritesheet successfuly loaded.("+file+")\n");
     else
         Mob2DLog::Instance()->PushString("Spritesheet loading failed somehow. Check the log for details.("+file+")\n");
 }
@@ -119,6 +117,7 @@ bool Sprite::LoadAnimations(TiXmlElement* root)
 	}
 	return true;
 }
+/*
 bool Sprite::LoadShaderProgram(TiXmlElement* root)
 {
     TiXmlElement* shader_element = root->FirstChildElement("shader");
@@ -147,6 +146,7 @@ bool Sprite::LoadShaderProgram(TiXmlElement* root)
     }
     else return false;
 }
+*/
 
 void Sprite::LoadAnimationFrame(TiXmlElement* frame_element, pAnimation anim)
 {

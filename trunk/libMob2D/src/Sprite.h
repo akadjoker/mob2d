@@ -50,13 +50,13 @@ class Sprite
 		int image_height;
 
         bool error_flag;
-        bool shader_enabled; // Not all sprites have to have a shader. Those that do will, use them.
+//        bool shader_enabled;
 
     /// Handle to the image stored in memory.
 		GLuint image_handle;
 
-    /// Shader that the sprite runs.
-		M2DFx shader;
+    // Shader that the sprite runs.
+		// M2DFx shader;
 
         // hash map implimentation.
         // boost::unordered_map<string, pAnimation> animations;
@@ -67,7 +67,7 @@ class Sprite
         bool LoadImageProperties(TiXmlElement* root);
         bool LoadAnimations(TiXmlElement* root);
         bool LoadImageData(TiXmlElement* root);
-        bool LoadShaderProgram(TiXmlElement* root); // Loads the shader strings from the XML file. Will need to make sure newlines are preserved.
+//        bool LoadShaderProgram(TiXmlElement* root); // Loads the shader strings from the XML file. Will need to make sure newlines are preserved.
         void LoadAnimationFrame(TiXmlElement* frame_element, pAnimation anim);
 
         friend class mob2d_node;

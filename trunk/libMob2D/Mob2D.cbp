@@ -66,6 +66,8 @@
 		<Unit filename="src/Mob2DRenderer.h" />
 		<Unit filename="src/Mob2DShader.cpp" />
 		<Unit filename="src/Mob2DShader.h" />
+		<Unit filename="src/ShaderManager.cpp" />
+		<Unit filename="src/ShaderManager.h" />
 		<Unit filename="src/Sprite.cpp" />
 		<Unit filename="src/Sprite.h" />
 		<Unit filename="src/SpriteManager.cpp" />

@@ -365,3 +365,194 @@
 1268061970 /home/orm/Projects/Mob2D/libMob2D/src/Frame.h
 	"Mob2DCommon.h"
 
+1268064479 source:/home/orm/Projects/mob2d/libMob2D/src/Animation.cpp
+	"Animation.h"
+
+1268064479 /home/orm/Projects/mob2d/libMob2D/src/Animation.h
+	"Mob2DCommon.h"
+	"Frame.h"
+
+1268095547 /home/orm/Projects/mob2d/libMob2D/src/Mob2DCommon.h
+	<map>
+	<list>
+	<vector>
+	<string>
+	<fstream>
+	<string.h>
+	<iostream>
+	<boost/shared_ptr.hpp>
+	<boost/unordered_map.hpp>
+	"GLee.h"
+	<GL/gl.h>
+	<GL/glu.h>
+
+1223335912 /home/orm/Projects/mob2d/libMob2D/src/GLee.h
+	<windows.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	<stddef.h>
+
+1268064479 /home/orm/Projects/mob2d/libMob2D/src/Frame.h
+	"Mob2DCommon.h"
+
+1223335912 source:/home/orm/Projects/mob2d/libMob2D/src/GLee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"GLee.h"
+	<Carbon/Carbon.h>
+
+1268081411 source:/home/orm/Projects/mob2d/libMob2D/src/Mob2D.cpp
+	"Mob2D.h"
+
+1268095465 /home/orm/Projects/mob2d/libMob2D/src/Mob2D.h
+	"Mob2DCommon.h"
+	"Mob2DRenderer.h"
+	"ShaderManager.h"
+
+1268077927 /home/orm/Projects/mob2d/libMob2D/src/Mob2DRenderer.h
+	"Mob2DCommon.h"
+	"ShaderManager.h"
+	"SpriteManager.h"
+
+1268079496 /home/orm/Projects/mob2d/libMob2D/src/ShaderManager.h
+	"Mob2DCommon.h"
+	"Mob2DShader.h"
+	"xml/tinyxml.h"
+
+1268079050 /home/orm/Projects/mob2d/libMob2D/src/Mob2DShader.h
+	<windows.h>
+	<map>
+	<fstream>
+	<iostream>
+	<string>
+	<vector>
+	"Mob2DCommon.h"
+
+1268064480 /home/orm/Projects/mob2d/libMob2D/src/SpriteManager.h
+	"Mob2DCommon.h"
+	"Sprite.h"
+	"mob2d_node.h"
+
+1268077583 /home/orm/Projects/mob2d/libMob2D/src/Sprite.h
+	"Mob2DCommon.h"
+	"Animation.h"
+	"Mob2DShader.h"
+	"xml/tinyxml.h"
+	"soil/SOIL.h"
+
+1259747884 /home/orm/Projects/mob2d/libMob2D/src/xml/tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1178466084 /home/orm/Projects/mob2d/libMob2D/src/xml/tinystr.h
+	<assert.h>
+	<string.h>
+
+1263978158 /home/orm/Projects/mob2d/libMob2D/src/soil/SOIL.h
+
+1268095684 /home/orm/Projects/mob2d/libMob2D/src/mob2d_node.h
+	"Mob2DCommon.h"
+	"Sprite.h"
+
+1268064479 source:/home/orm/Projects/mob2d/libMob2D/src/Mob2DLog.cpp
+	"Mob2DCommon.h"
+
+1268081261 source:/home/orm/Projects/mob2d/libMob2D/src/Mob2DRenderer.cpp
+	"Mob2DRenderer.h"
+
+1268077481 source:/home/orm/Projects/mob2d/libMob2D/src/Mob2DShader.cpp
+	"Mob2DShader.h"
+
+1268081730 source:/home/orm/Projects/mob2d/libMob2D/src/ShaderManager.cpp
+	"ShaderManager.h"
+
+1268081050 source:/home/orm/Projects/mob2d/libMob2D/src/SpriteManager.cpp
+	"SpriteManager.h"
+
+1268095684 source:/home/orm/Projects/mob2d/libMob2D/src/mob2d_node.cpp
+	"mob2d_node.h"
+	"SpriteManager.h"
+	"Mob2DRenderer.h"
+	"Mob2D.h"
+
+1263978158 source:/home/orm/Projects/mob2d/libMob2D/src/soil/SOIL.c
+	<windows.h>
+	<wingdi.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<Carbon/Carbon.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	"SOIL.h"
+	"stb_image_aug.h"
+	"image_helper.h"
+	"image_DXT.h"
+	<stdlib.h>
+	<string.h>
+
+1263978158 /home/orm/Projects/mob2d/libMob2D/src/soil/stb_image_aug.h
+	<stdio.h>
+
+1263978158 /home/orm/Projects/mob2d/libMob2D/src/soil/image_helper.h
+
+1263978158 /home/orm/Projects/mob2d/libMob2D/src/soil/image_DXT.h
+
+1263978156 source:/home/orm/Projects/mob2d/libMob2D/src/soil/image_DXT.c
+	"image_DXT.h"
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+
+1263978158 source:/home/orm/Projects/mob2d/libMob2D/src/soil/image_helper.c
+	"image_helper.h"
+	<stdlib.h>
+	<math.h>
+
+1263978158 source:/home/orm/Projects/mob2d/libMob2D/src/soil/stb_image_aug.c
+	"stb_image_aug.h"
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+	"stbi_DDS_aug.h"
+	"stbi_DDS_aug_c.h"
+
+1263978158 /home/orm/Projects/mob2d/libMob2D/src/soil/stbi_DDS_aug.h
+
+1263978158 /home/orm/Projects/mob2d/libMob2D/src/soil/stbi_DDS_aug_c.h
+
+1178466084 source:/home/orm/Projects/mob2d/libMob2D/src/xml/tinystr.cpp
+	"tinystr.h"
+
+1178466084 source:/home/orm/Projects/mob2d/libMob2D/src/xml/tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1178466084 source:/home/orm/Projects/mob2d/libMob2D/src/xml/tinyxmlerror.cpp
+	"tinyxml.h"
+
+1178466084 source:/home/orm/Projects/mob2d/libMob2D/src/xml/tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1268081154 source:/home/orm/Projects/mob2d/libMob2D/src/Sprite.cpp
+	"Sprite.h"
+

@@ -10,9 +10,4 @@
 		<frame><top_left x="0" y="0" /><bottom_right x="200" y="200" /></frame>
 		<frame><top_left x="200" y="0" /><bottom_right x="400" y="200" /></frame>
 	</animation>
-	
-	<shader>
-		<vertex file="resources/vertex.vert" />
-		<fragment file="resources/fragment.frag" />
-	</shader>
 </spritesheet>
