@@ -34,11 +34,11 @@ void SpriteManager::AddResource(string file)
 		else
 		{
 			sprites.insert(std::pair<string, pSprite>(sprite->GetName(), sprite));
-			Mob2DLog::Instance()->PushString("Sprite data overwritten.");
+			Mob2DLog::Instance()->PushString("Sprite data overwritten.\n");
 		}
 	}
 	else
-		Mob2DLog::Instance()->PushString("Sprite load failed. Tried to overwrite default error resource.");
+		Mob2DLog::Instance()->PushString("Sprite load failed. Tried to overwrite default error resource.\n");
 }
 M2DNode SpriteManager::AddNode(string handle)
 {
@@ -51,7 +51,7 @@ M2DNode SpriteManager::AddNode(string handle)
 	else
 	{
 		M2DNode node(new mob2d_node(sprites["ERROR"]));
-		Mob2DLog::Instance()->PushString("Mob2DNode set to error and left unmapped.");
+		Mob2DLog::Instance()->PushString("Mob2DNode set to error and left unmapped.\n");
 		return node;
 	}
 }
@@ -59,7 +59,7 @@ void SpriteManager::MapNode(M2DNode node, string key)
 {
     // Ain't I clever?
     if(sprites.find(key) == sprites.end())
-        Mob2DLog::Instance()->PushString("ERROR! Could not map node to a nonexistant key.");
+        Mob2DLog::Instance()->PushString("ERROR! Could not map node to a nonexistant key.\n");
     else
         nodes.insert(std::pair<string, M2DNode>(key, node));
 }
@@ -80,7 +80,7 @@ void SpriteManager::DeleteSprite(string sprite_name)
 		sprites.erase(sprite_name);
 	}
 	else
-        Mob2DLog::Instance()->PushString("Sprite resource not found. Can not delete.");
+        Mob2DLog::Instance()->PushString("Sprite resource not found. Can not delete.\n");
 }
 void SpriteManager::ClearNodes(string handle)
 {
@@ -102,11 +102,6 @@ pSprite SpriteManager::GetSprite(string sprite_name)
 		return sprites[sprite_name];
 	else
 		return sprites["ERROR"];
-}
-void SpriteManager::Cleanup()
-{
-    // So easy a caveman can do it.
-    nodes.erase("CLEANUP");
 }
 
 } // namespace

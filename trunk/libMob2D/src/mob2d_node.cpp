@@ -93,7 +93,7 @@ void mob2d_node::SetLayer(GLfloat layer)
 {
     this->layer = layer;
 }
-void mob2d_node::SetFlag(M2Denum val)
+void mob2d_node::ToggleOption(M2Denum val)
 {
     switch(val)
     {
@@ -124,6 +124,10 @@ void mob2d_node::SetShader(const string& shader)
 {
     this->shader = shader;
 }
+void mob2d_node::ToggleShader()
+{
+    shader_enabled = !shader_enabled;
+}
 void mob2d_node::EnableShader()
 {
     shader_enabled = true;
@@ -132,7 +136,6 @@ void mob2d_node::DisableShader()
 {
     shader_enabled = false;
 }
-
 
 } // namespace
 
