@@ -48,9 +48,6 @@ class SpriteManager
 	/// Returns a pointer to a sprite. Used in lookup routines.
 		pSprite GetSprite(string sprite_name);
 
-    /// Clears all instance nodes that have no associated resource. Essentially a garbage collection function.
-		void Cleanup();
-
     /// Used to map an already existing node so that it can be rendered. The function will check against the
     /// sprites map to make sure that the node is being mapped to an existing key to avoid inefficient rendering.
 		void MapNode(M2DNode node, string key);

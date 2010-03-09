@@ -62,7 +62,7 @@ int main()
 
     // Create app nodes and assign it to the image resources stored by the system.
     // This is just a quick and dirty demonstration. I need to make a nicer one.
-	M2DNode app_node  = m2dAddNode("Test_Image");
+	M2DNode app_node0 = m2dAddNode("Test_Image");
 	M2DNode app_node1 = m2dAddNode("Zero");
 	M2DNode app_node2 = m2dAddNode("Test_Image");
 	M2DNode app_node3 = m2dAddNode("Zero");
@@ -74,7 +74,7 @@ int main()
     //app_node3->SetLayer(-20.0f);
 
     // Move the sprite relative to the top left.
-	app_node ->Translate(100, 300); // left side
+	app_node0->Translate(100, 300); // left side
     app_node1->Translate(400, 100); // top side
     app_node2->Translate(700, 300); // right side
     app_node3->Translate(400, 500); // bottom side
@@ -86,7 +86,7 @@ int main()
 
 	// If an animation is not set for a node, then it will not display.
 	// Unset nodes default to the "ERROR" animation. Same thing occurs when an animation string is invalid.
-	app_node->SetAnimation("letters");
+	app_node0->SetAnimation("letters");
 	app_node1->SetAnimation("Transport_Zero");
 	app_node2->SetAnimation("letters");
 	app_node3->SetAnimation("Transport_Zero");
@@ -95,8 +95,9 @@ int main()
 	m2dLoadShader("resources/zero_shader.xml");
 
 	app_node1->SetShader("Zero_Shader");
-	app_node1->EnableShader();
-	// app_node1->SetBlend(255, 0, 0);
+	app_node1->ToggleShader();
+
+	app_node1->SetBlend(255, 0, 0);
 
     // Dump the log to the console so we can see if anything went wrong.
 	m2dDumpLogConsole();
@@ -117,7 +118,7 @@ int main()
         loops = 0;
         while((GetTickCount() > next_game_tick) && (loops < MAX_FRAMESKIP))
         {
-            app_node->StepFrame();
+            app_node0->StepFrame();
             app_node1->StepFrame();
             app_node2->StepFrame();
             app_node3->StepFrame();
@@ -126,6 +127,9 @@ int main()
             next_game_tick += SKIP_TICKS;
             loops++;
         }
+
+        if(glfwGetKey(GLFW_KEY_ENTER))
+            app_node1->ToggleShader();
 
         //-----INSERT Mob2D RENDERING CODE HERE-----//
 		m2dFinalizeFrame(/*Interpolation will be implimented soon!*/);
