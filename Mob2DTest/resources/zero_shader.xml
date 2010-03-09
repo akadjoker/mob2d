@@ -1,0 +1,4 @@
+<shader name="Zero_Shader">
+	<vertex file="resources/vertex.vert" />
+	<fragment file="resources/fragment.frag" />
+</shader>

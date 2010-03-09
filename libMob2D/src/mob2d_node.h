@@ -44,6 +44,7 @@ class mob2d_node
 		bool draw;
 		bool loop;
 		bool draw_to_screen;
+		bool shader_enabled;
 
     /// Positional data, angular data, and scalar data.
 		float x;
@@ -55,6 +56,7 @@ class mob2d_node
 
     /// Current animation being rendered.
 		string animation;
+		string shader;
 
     /// This is used to provide direct access to the Sprite resource rather than looking it up through the sprite cache.
 		pSprite m_sprite;
@@ -66,15 +68,24 @@ class mob2d_node
     /// Methods to set data for drawing.
 		void StepFrame();
 		void SetFrame(uint frame);
-		void SetAnimation(const string& anim);
+
 		void SetSprite(const string& sprite_handle);
+		void SetAnimation(const string& anim);
+
 		void SetBlend(float r, float g, float b);
+
+		void SetShader(const string& shader);
         void SetLayer(GLfloat layer);
 
     /// Set the specified flag either on or off, depending on what it is currently set to.
 		void SetFlag(M2Denum val);
     /// Returns the specified flag's value.
 		bool GetFlag(M2Denum val);
+
+
+		void EnableShader();
+        void DisableShader();
+
 
 		void Rotate(float angle)                  { this->angle = angle;      }
 		void Translate(int x, int y)              { this->x = x; this->y = y; }

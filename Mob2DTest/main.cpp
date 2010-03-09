@@ -92,6 +92,12 @@ int main()
 	app_node3->SetAnimation("Transport_Zero");
 	app_node4->SetAnimation("letters");
 
+	m2dLoadShader("resources/zero_shader.xml");
+
+	app_node1->SetShader("Zero_Shader");
+	app_node1->EnableShader();
+	// app_node1->SetBlend(255, 0, 0);
+
     // Dump the log to the console so we can see if anything went wrong.
 	m2dDumpLogConsole();
 

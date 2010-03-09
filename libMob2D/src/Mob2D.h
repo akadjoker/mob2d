@@ -3,6 +3,8 @@
 
 #include "Mob2DCommon.h"
 #include "Mob2DRenderer.h"
+#include "ShaderManager.h"
+
 
 /**
 Mob2D:
@@ -49,6 +51,8 @@ void m2dClearNodes(string);
 
 /// Adds a node to the internal cache of nodes and returns a copy for reference.
 M2DNode m2dAddNode(string);
+
+void m2dLoadShader(const string& file);
 
 //-----UTILITY FUNCTIONS-----//
 /// Sets the clear color.

@@ -59,6 +59,8 @@ public:
     void bindAttrib(unsigned int index, const string& attribName);
     void bindShader();
 
+    bool isValid() { return valid; }
+
 private:
     bool compileShader(const M2DShader& shader);
     void outputShaderLog(unsigned int shaderID);
@@ -74,7 +76,12 @@ private:
 
     map<string, GLuint> m_uniformMap;
     map<string, GLuint> m_attribMap;
+
+    bool valid;
+
 };
+
+typedef boost::shared_ptr<M2DFx> m2dFx;
 
 } // anmespace
 #endif // GLSL_SHADER_H_INCLUDED

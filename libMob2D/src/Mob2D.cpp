@@ -94,6 +94,11 @@ void m2dSetClearColor(float r, float g, float b)
 
     glClearColor(_r, _g, _b, 0.0f);
 }
+void m2dLoadShader(const string& file)
+{
+    ShaderManager::Instance()->LoadShader(file);
+}
+
 void m2dDumpLogConsole()
 {
     Mob2DLog::Instance()->ConsoleDump();

@@ -84,10 +84,11 @@ void Mob2DRenderer::DrawNode(M2DNode node)
 {
     if(!node->m_sprite->error())
     {
-        if(!node->m_sprite->shader_enabled)
-            DrawFixedFunction(node);
-        else
+        // only render it with a shader if it is enabled AND the shader is a valid one.
+        if(node->shader_enabled && ShaderManager::Instance()->GetShader(node->shader)->isValid())
             DrawShader(node);
+        else
+            DrawFixedFunction(node);
     }
 }
 void Mob2DRenderer::DrawFixedFunction(M2DNode node)
@@ -123,7 +124,7 @@ void Mob2DRenderer::DrawShader(M2DNode node)
     // m_sprite->shader.sendUniform4x4("m2d_mp_matrix", mp_mat);
 
     glEnable(GL_DEPTH_BUFFER);
-    node->m_sprite->shader.bindShader();
+    ShaderManager::Instance()->GetShader(node->shader)->bindShader();
 
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
@@ -143,7 +144,7 @@ void Mob2DRenderer::DrawShader(M2DNode node)
         glRotatef(node->angle, 0.0f, 0.0f, 1.0f);
         glScalef(node->scale_x, node->scale_y, 0.0f);
 
-        node->m_sprite->shader.sendUniform("m2d_texture0", 0);
+        ShaderManager::Instance()->GetShader(node->shader)->sendUniform("m2d_texture0", 0);
 
         glDrawArrays(GL_QUADS, 0, 4);
     glPopMatrix();
@@ -155,6 +156,7 @@ void Mob2DRenderer::DrawShader(M2DNode node)
     glUseProgram(0);
     glDisable(GL_DEPTH_BUFFER);
 
+    // std::cout<<"Shader rendered.\n";
     // 1 -> m2d_vertex
     // 2 -> m2d_texcoord
     // 3 -> m2d_blendcolor

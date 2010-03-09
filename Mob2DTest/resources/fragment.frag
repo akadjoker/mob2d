@@ -9,6 +9,6 @@ varying vec3 blend;
 void main(void)
 {
 	vec4 fragcol = texture2D(m2d_texture0, texcoord.st);
-	gl_FragColor = fragcol * vec4(blend, 1.0);
+	gl_FragColor = vec4(blend, 1.0) * fragcol;
 }
 

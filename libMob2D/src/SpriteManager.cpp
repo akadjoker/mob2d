@@ -24,6 +24,7 @@ void SpriteManager::Deinit()
 void SpriteManager::AddResource(string file)
 {
 	pSprite sprite(new Sprite(file));
+
 	if(sprite->GetName() != "ERROR")
 	{
 		if(sprites.find(sprite->GetName()) == sprites.end())
