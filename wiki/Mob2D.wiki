@@ -11,7 +11,7 @@ Mob2D was designed to provide a minimal footprint. As a result, it relies on a s
 
 ==The Code==
 
-Once we have a window with an OpenGL context, we need to enable the Mob2D API class, called Mob2D. We do that with one simple function call:
+Once we have a window with an OpenGL context, we need to enable Mob2D. We do that with one simple function call:
 
 {{{
 m2dInit();
@@ -38,7 +38,7 @@ IT'S SO SIMPLE I CAN HARDLY STAND IT! That is literally all there is to it! The 
 But wait! We have a problem! When we add a node, the node will not be able to render anything right off the bat. When we add a node, the node automatically sets itself to a blank animation. This is called the nodes "default state", or the state that prevents it from pointing to any null values that could potentially bring the whole engine down. So lets set the animation! How easy is that? Here, I'll show you.
 
 {{{
-// This is why you want to store a copy! Nodes carry with them a set of functions that allow you to manipulate them. SetAnimation() allows you to specify which animation is played.
+// This is why you want to store a copy! Nodes carry with them a set of functions that allow you to manipulate them. m2ob2d_node::SetAnimation() allows you to specify which animation is played.
 app_node->SetAnimation("letters");
 }}}
 
@@ -73,7 +73,7 @@ Now that we have our node and we have set the animation, we are ready to enter o
 
         //-----INSERT Mob2D RENDERING CODE HERE-----//
                 // The magic function! This function must be called EVERY FRAME otherwise nothing will be drawn. This function renders all the active nodes.
-		m2dFinalizeFrame(/*Interpolation will be implimented soon!*/);
+		m2dFinalizeFrame(/*Interpolation will be implemented soon!*/);
 
         glfwSwapBuffers();
 
